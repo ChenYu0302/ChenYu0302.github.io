@@ -12,6 +12,6 @@
 
 [C++ Primer 5th Edition 4th Part](Bookshelf/C++Primer5thEdition/Part4.md)
 
-## 爱好
+## 生活
 
 [音乐学习](Music/Music.md)
