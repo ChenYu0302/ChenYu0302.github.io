@@ -1,8 +1,14 @@
-# 陈宇的个人主页
+# ChenYu's Secret Base
 
-## 生活
+## Software
 
-[音乐学习](Music/Music.md)
+## Hardware
 
-## 我的书架
+## Life
+
+[Music](Music/Music.md)
+
+## Bookshelf
+
+[C++ Primer 5th Editon](Bookshelf/C++Primer5thEditon/C++Primer5thEditon.md)
 
