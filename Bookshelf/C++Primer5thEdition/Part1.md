@@ -469,6 +469,7 @@ Exercise 1.11: Write a program that prompts the user for two integers. Print eac
 In our while loop we used the variable val to control how many times we executed the loop. We tested the value of val in the condition and incremented val in the while body. 
 This pattern'using a variable in a condition and incrementing that variable in the body'happens so often that the language defines a second statement, the for 
 statement, that abbreviates code that follows this pattern. We can rewrite this program using a for loop to sum the numbers from 1 through 10 as follows: 
+
 #include <iostream> 
 int main() 
 { 
@@ -3114,29 +3115,55 @@ Exercises Section 3.4.2 Exercise 3.24: Redo the last exercise from § 3.3.3
 105) using iterators. Exercise 3.25: Rewrite the grade clustering program from 
 § 3.3.3 
 (p. 104) using iterators instead of subscripts. Exercise 3.26: In the binary search program on page 112, why did we write mid = beg +(end -beg) /2; instead of mid = (beg + end) /2;? 
-3.5. Arrays 
-An array is a data structure that is similar to the library vector type (§ 3.3, p. 96) but offers a different trade-off between performance and flexibility. Like a vector, an array is a container of unnamed objects of a single type that we access by position. Unlike a vector, arrays have fixed size; we cannot add elements to an array. Because arrays have fixed size, they sometimes offer better run-time performance for specialized applications. However, that run-time advantage comes at the cost of lost flexibility. 
 
-Tip 
-If you don't know exactly how many elements you need, use a vector. 
-3.5.1. Defining and Initializing Built-in Arrays 
+### 3.5. Arrays 
+
+An array is a data structure that is similar to the library vector type (§ 3.3, p. 96) but offers a different trade-off between performance and flexibility. Like a `vector`, an array is a container of unnamed objects of a single type that we access by position. Unlike a `vector`, arrays have fixed size; we cannot add elements to an array. Because arrays have fixed size, they sometimes offer better run-time performance for specialized applications. However, that run-time advantage comes at the cost of lost flexibility. 
+
+> **Tip** 
+> If you don't know exactly how many elements you need, use a vector. 
+
+#### 3.5.1. Defining and Initializing Built-in Arrays 
+
 Arrays are a compound type (§ 2.3, p. 50). An array declarator has the form a[d], where a is the name being defined and d is the dimension of the array. The dimension specifies the number of elements and must be greater than zero. The number of elements in an array is part of the array's type. As a result, the dimension must be known at compile time, which means that the dimension must be a constant expression (§ 2.4.4, p. 65): 
+
+```c++
 unsigned cnt = 42; // not a constant expression 
 constexpr unsigned sz = 42; // constant expression 
-// constexpr see § 2.4.4 (p. 66) int arr[10]; // array of ten ints int *parr[sz]; // array of 42 pointers to int string bad[cnt]; // error: cnt is not a constant expression string strs[get_size()]; // ok if get_size is constexpr, error otherwise 
+                            // constexpr see § 2.4.4 (p. 66) 
+int arr[10]; // array of ten ints 
+int *parr[sz]; // array of 42 pointers to int 
+string bad[cnt]; // error: cnt is not a constant expression 
+string strs[get_size()]; // ok if get_size is constexpr, error otherwise 
+```
+
+
 By default, the elements in an array are default initialized (§ 2.2.1, p. 43). 
 
-Warning 
-As with variables of built-in type, a default-initialized array of built-in type that is defined inside a function will have undefined values. 
-When we define an array, we must specify a type for the array. We cannot use auto to deduce the type from a list of initializers. As with vector, arrays hold objects. Thus, there are no arrays of references. 
+> **⚠️Warning**
+>
+> As with variables of built-in type, a default-initialized array of built-in type that is defined inside a function will have undefined values. 
 
-Explicitly Initializing Array Elements 
+When we define an array, we must specify a type for the array. We cannot use `auto` to deduce the type from a list of initializers. As with vector, arrays hold objects. Thus, there are no arrays of references. 
+
+##### Explicitly Initializing Array Elements
+
 We can list initialize (§ 3.3.1, p. 98) the elements in an array. When we do so, we can omit the dimension. If we omit the dimension, the compiler infers it from the number of initializers. If we specify a dimension, the number of initializers must not exceed the specified size. If the dimension is greater than the number of initializers, the initializers are used for the first elements and any remaining elements are value initialized (§ 3.3.1, p. 98): 
-const unsigned sz = 3; int ia1[sz] = {0,1,2}; // array of three ints with values 0, 1, 2 int a2[] = {0, 1, 2}; // an array of dimension 3 int a3[5] = {0, 1, 2}; // equivalent to a3[] = {0, 1, 2, 0, 0} string a4[3] = {"hi", "bye"}; // same as a4[] = {"hi", "bye", ""} int a5[2] = {0,1,2}; // error: too many initializers 
+
+```c++
+const unsigned sz = 3; 
+int ia1[sz] = {0,1,2}; // array of three ints with values 0, 1, 2 
+int a2[] = {0, 1, 2}; // an array of dimension 3 
+int a3[5] = {0, 1, 2}; // equivalent to a3[] = {0, 1, 2, 0, 0} 
+string a4[3] = {"hi", "bye"}; // same as a4[] = {"hi", "bye", ""} 
+int a5[2] = {0,1,2}; // error: too many initializers 
+```
+
 Character Arrays Are Special 
 Character arrays have an additional form of initialization: We can initialize such arrays from a string literal (§ 2.1.3, p. 39). When we use this form of initialization, it is important to remember that string literals end with a null character. That null character is copied into the array along with the characters in the literal: 
 char a1[] = {'C', '+', '+'}; // list initialization, no null char a2[] = {'C', '+', '+', '\0'}; // list initialization, explicit null char a3[] = "C++"; // null terminator added automatically const char a4[6] = "Daniel"; // error: no space for the null! 
 The dimension of a1 is 3; the dimensions of a2 and a3 are both 
+
 4. The definition of a4 is in error. Although the literal contains only six explicit characters, the array size must be at least seven'six to hold the literal and one for the null. 
 
 No Copy or Assignment 
