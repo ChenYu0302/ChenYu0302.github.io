@@ -3469,17 +3469,29 @@ vector<int> subVec(int_arr + 1, int_arr + 4); This initialization creates subVec
 Advice: Use Library Types Instead of Arrays 
 Pointers and arrays are surprisingly error-prone. Part of the problem is conceptual: Pointers are used for low-level manipulations and it is easy to make bookkeeping mistakes. Other problems arise because of the syntax, particularly the declaration syntax used with pointers. 
 Modern C++ programs should use vectors and iterators instead of built-in arrays and pointers, and use strings rather than C-style array-based character strings. 
-3.6. Multidimensional Arrays 
 
-Strictly speaking, there are no multidimensional arrays in C++. What are commonly referred to as multidimensional arrays are actually arrays of arrays. It can be helpful to keep this fact in mind when you use what appears to be a multidimensional array. 
-Exercises Section 3.5.5 
-Exercise 3.41: Write a program to initialize a vector from an array of ints. Exercise 3.42: Write a program to copy a vector of 
-ints into an array of ints. 
+### 3.6. Multidimensional Arrays 
+
+📚Strictly speaking, there are no multidimensional arrays in C++. What are commonly referred to as multidimensional arrays are actually arrays of arrays. It can be helpful to keep this fact in mind when you use what appears to be a multidimensional array. 
+
+> **Exercises Section 3.5.5** 
+>
+> **Exercise 3.41**: Write a program to initialize a vector from an array of ints. 
+>
+> **Exercise 3.42**: Write a program to copy a vector of 
+> ints into an array of ints. 
+
 We define an array whose elements are arrays by providing two dimensions: the dimension of the array itself and the dimension of its elements: 
-int ia[3][4]; // array of size 3; each element is an array of ints of size 4// array of size 10; each element is a 20-element array whose elements are arrays of 30 ints int arr[10][20][30] = {0}; // initialize all elements to 0 
-As we saw in § 3.5.1 
-(p. 115), we can more easily understand these definitions by reading them from the inside out. We start with the name we're defining (ia) and see that ia is an array of size 3. Continuing to look to the right, we see that the elements of ia also have a dimension. Thus, the elements in ia are themselves arrays of size 4. Looking left, we see that the type of those elements is int. So, ia is an array of size 3, each of whose elements is an array of four ints. 
+
+```c++
+int ia[3][4]; // array of size 3; each element is an array of ints of size 4// array of size 10; each element is a 20-element array whose elements are arrays of 30 ints 
+int arr[10][20][30] = {0}; // initialize all elements to 0 
+```
+
+As we saw in § 3.5.1 (p. 115), we can more easily understand these definitions by reading them from the inside out. We start with the name we're defining (`ia`) and see that ia is an array of size 3. Continuing to look to the right, we see that the elements of ia also have a dimension. Thus, the elements in `ia` are themselves arrays of size 4. Looking left, we see that the type of those elements is int. So, `ia` is an array of size 3, each of whose elements is an array of four `int`s. 
+
 We read the definition for arr in the same way. First we see that arr is an array of size 10. The elements of that array are themselves arrays of size 20. Each of those arrays has 30 elements that are of type int. There is no limit on how many subscripts are used. That is, we can have an array whose elements are arrays of elements that are arrays, and so on. 
+
 In a two-dimensional array, the first dimension is usually referred to as the row and the second as the column. 
 Initializing the Elements of a Multidimensional Array 
 As with any array, we can initialize the elements of a multidimensional array by providing a bracketed list of initializers. Multidimensional arrays may be initialized by specifying bracketed values for each row: 
