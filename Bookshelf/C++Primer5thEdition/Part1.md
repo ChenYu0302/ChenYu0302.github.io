@@ -3493,77 +3493,168 @@ As we saw in § 3.5.1 (p. 115), we can more easily understand these definitions 
 We read the definition for arr in the same way. First we see that arr is an array of size 10. The elements of that array are themselves arrays of size 20. Each of those arrays has 30 elements that are of type int. There is no limit on how many subscripts are used. That is, we can have an array whose elements are arrays of elements that are arrays, and so on. 
 
 In a two-dimensional array, the first dimension is usually referred to as the row and the second as the column. 
-Initializing the Elements of a Multidimensional Array 
+
+##### Initializing the Elements of a Multidimensional Array 
+
 As with any array, we can initialize the elements of a multidimensional array by providing a bracketed list of initializers. Multidimensional arrays may be initialized by specifying bracketed values for each row: 
+
+```C++
 int ia[3][4] = { // three elements; each element is an array of size 4 
-{0, 1, 2, 3}, // initializers for the row indexed by 0 {4, 5, 6, 7}, // initializers for the row indexed by 1 {8, 9, 10, 11} // initializers for the row indexed by 2 
+  {0, 1, 2, 3}, // initializers for the row indexed by 0
+  {4, 5, 6, 7}, // initializers for the row indexed by 1 
+  {8, 9, 10, 11} // initializers for the row indexed by 2 
 }; 
+```
+
 The nested braces are optional. The following initialization is equivalent, although considerably less clear: 
-// equivalent initialization without the optional nested braces for each row int ia[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11}; 
+
+```c++
+// equivalent initialization without the optional nested braces for each row 
+int ia[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11}; 
+```
+
 As is the case for single-dimension arrays, elements may be left out of the initializer list. We can initialize only the first element of each row as follows: 
-// explicitly initialize only element 0 in each row int ia[3][4] = {{ 0 }, { 4}, { 8 }}; 
+
+```c++
+// explicitly initialize only element 0 in each row 
+int ia[3][4] = {{ 0 }, { 4}, { 8 }}; 
+```
+
 The remaining elements are value initialized in the same way as ordinary, single-dimension arrays (§ 3.5.1, p. 114). If the nested braces were omitted, the results would be very different. This code 
+
+```c++
 // explicitly initialize row 0; the remaining elements are value initialized 
 int ix[3][4] = {0, 3, 6, 9}; 
-initializes the elements of the first row. The remaining elements are initialized to 0. 
-Subscripting a Multidimensional Array 
-As with any array, we can use a subscript to access the elements of a multidimensional array. To do so, we use a separate subscript for each dimension. 
-If an expression provides as many subscripts as there are dimensions, we get an element with the specified type. If we supply fewer subscripts than there are dimensions, then the result is the inner-array element at the specified index: 
-// assigns the first element of arr to the last element in the last row of ia 
-ia[2][3] = arr[0][0][0]; int (&row)[4] = ia[1]; // binds row to the second four-element array in ia 
-In the first example we supply indices for all the dimensions for both arrays. On the left-hand side, ia[2] returns the last row in ia. It does not fetch an element from that array but returns the array itself. We subscript that array, fetching element [3], which is the last element in that array. 
-Similarly, the right-hand operand has three dimensions. We first fetch the array at index 0 from the outermost array. The result of that operation is a (multidimensional) array of size 20. We take the first element from that 20-element array, yielding an array of size 30. We then fetch the first element from that array. 
-In the second example, we define row as a reference to an array of four ints. We bind that reference to the second row in ia. 
-As another example, it is common to use a pair of nested for loops to process the elements in a multidimensional array: 
-constexpr size_t rowCnt = 3, colCnt = 4; int ia[rowCnt][colCnt]; // 12 uninitialized elements // for each row for (size_t i = 0; i != rowCnt; ++i) { 
-// for each column within the row 
-for (size_t j = 0; j != colCnt; ++j) { // assign the element's positional index as its value ia[i][j] = i * colCnt + j; 
-} } 
-The outer for loops through each of the array elements in ia. The inner for loops through the elements of those interior arrays. In this case, we set the value of each element as its index in the overall array. 
-Using a Range for with Multidimensional Arrays 
+```
 
-Under the new standard we can simplify the previous loop by using a range for: 
-size_t cnt = 0; 
-for (auto &row : ia) // for every element in the outer array 
-for (auto &col : row) { // for every element in the inner array 
-col = cnt; // give this element the next value 
-++cnt; // increment cnt 
+initializes the elements of the first row. The remaining elements are initialized to 0. 
+
+##### Subscripting a Multidimensional Array 
+
+As with any array, we can use a subscript to access the elements of a multidimensional array. To do so, we use a separate subscript for each dimension. 
+
+If an expression provides as many subscripts as there are dimensions, we get an element with the specified type. If we supply fewer subscripts than there are dimensions, then the result is the inner-array element at the specified index: 
+
+```c++
+// assigns the first element of arr to the last element in the last row of ia
+ia[2][3] = arr[0][0][0]; 
+int (&row)[4] = ia[1]; // binds row to the second four-element array in ia
+```
+
+In the first example we supply indices for all the dimensions for both arrays. On the left-hand side, `ia[2]` returns the last row in ia. It does not fetch an element from that array but returns the array itself. We subscript that array, fetching element `[3]`, which is the last element in that array. 
+
+Similarly, the right-hand operand has three dimensions. We first fetch the array at index 0 from the outermost array. The result of that operation is a (multidimensional) array of size 20. We take the first element from that 20-element array, yielding an array of size 30. We then fetch the first element from that array. 
+
+In the second example, we define row as a reference to an array of four ints. We bind that reference to the second row in ia. 
+
+As another example, it is common to use a pair of nested for loops to process the elements in a multidimensional array: 
+
+```c++
+constexpr size_t rowCnt = 3, colCnt = 4;
+int ia[rowCnt][colCnt]; // 12 uninitialized elements 
+// for each row
+for (size_t i = 0; i != rowCnt; ++i) { 
+  // for each column within the row 
+  for (size_t j = 0; j != colCnt; ++j) { 
+    // assign the element's positional index as its value 
+    ia[i][j] = i * colCnt + j; 
+  } 
 } 
+```
+
+The outer `for` loops through each of the array elements in `ia`. The inner `for` loops through the elements of those interior arrays. In this case, we set the value of each element as its index in the overall array. 
+
+##### Using a Range for with Multidimensional Arrays 
+
+🔍Under the new standard we can simplify the previous loop by using a range for: 
+size_t cnt = 0; 
+
+```c++
+for (auto &row : ia) // for every element in the outer array 
+  for (auto &col : row) { // for every element in the inner array 
+    col = cnt; // give this element the next value 
+    ++cnt; // increment cnt 
+  } 
+```
+
 This loop gives the elements of ia the same values as the previous loop, but this time we let the system manage the indices for us. We want to change the value of the elements, so we declare our control variables, row and col, as references (§ 3.2.3, p. 93). The first for iterates through the elements in ia. Those elements are arrays of size 4. Thus, the type of row is a reference to an array of four ints. The second for iterates through one of those 4-element arrays. Hence, col is int&. On each iteration we assign the value of cnt to the next element in ia and increment cnt. 
+
 In the previous example, we used references as our loop control variables because we wanted to change the elements in the array. However, there is a deeper reason for using references. As an example, consider the following loop: 
-for (const auto &row : ia) // for every element in the outer array for (auto col : row) // for every element in the inner array cout << col << endl; 
+
+```c++
+for (const auto &row : ia) // for every element in the outer array 
+  for (auto col : row) // for every element in the inner array 
+    cout << col << endl; 
+```
+
 This loop does not write to the elements, yet we still define the control variable of the outer loop as a reference. We do so in order to avoid the normal array to pointer conversion (§ 3.5.3, 
 p. 117). Had we neglected the reference and written these loops as: 
-for (auto row : ia) for (auto col : row) 
+
+```c++
+for (auto row : ia) 
+  for (auto col : row) 
+```
+
+
 our program would not compile. As before, the first for iterates through ia, whose elements are arrays of size 4. Because row is not a reference, when the compiler initializes row it will convert each array element (like any other object of array type) to a pointer to that array's first element. As a result, in this loop the type of row is int*. The inner for loop is illegal. Despite our intentions, that loop attempts to iterate over an int*. 
 
-Note 
-To use a multidimensional array in a range for, the loop control variable for all but the innermost array must be references. 
-Pointers and Multidimensional Arrays 
+> **Note** 
+> To use a multidimensional array in a range `for`, the loop control variable for all but the innermost array must be references. 
+
+##### Pointers and Multidimensional Arrays 
+
 As with any array, when we use the name of a multidimensional array, it is automatically converted to a pointer to the first element in the array. 
 
-Note 
+>**Note** 
 When you define a pointer to a multidimensional array, remember that a multidimensional array is really an array of arrays. 
-Because a multidimensional array is really an array of arrays, the pointer type to which the array converts is a pointer to the first inner array: 
-int ia[3][4]; // array of size 3; each element is an array of ints of size 4 int (*p)[4] = ia; // p points to an array of four ints p = &ia[2]; // p now points to the last element in ia 
-Applying the strategy from § 3.5.1 
-(p. 115), we start by noting that (*p) says p is a pointer. Looking right, we see that the object to which p points has a dimension of size 4, and looking left that the element type is int. Hence, p is a pointer to an array of four ints. 
 
-Note 
-The parentheses in this declaration are essential: 
-int *ip[4]; // array of pointers to int int (*ip)[4]; // pointer to an array of four ints 
+Because a multidimensional array is really an array of arrays, the pointer type to which the array converts is a pointer to the first inner array: 
+
+```c++
+int ia[3][4]; // array of size 3; each element is an array of ints of size 4 
+int (*p)[4] = ia; // p points to an array of four ints 
+p = &ia[2]; // p now points to the last element in ia 
+```
+
+Applying the strategy from § 3.5.1 (p. 115), we start by noting that (*p) says p is a pointer. Looking right, we see that the object to which p points has a dimension of size 4, and looking left that the element type is int. Hence, p is a pointer to an array of four ints. 
+
+> **Note** 
+> The parentheses in this declaration are essential: 
+>
+> ```c++
+> int *ip[4]; // array of pointers to int 
+> int (*ip)[4]; // pointer to an array of four ints 
+> ```
+
 With the advent of the new standard, we can often avoid having to write the type of a pointer into an array by using auto or decltype (§ 2.5.2, p. 68): 
 
-// print the value of each element in ia, with each inner array on its own line // p points to an array of four ints for (auto p=ia;p != ia + 3; ++p){ 
-// q points to the first element of an array of four ints; that is, q points to an int 
-for (auto q =*p;q!= *p +4; ++q) cout << *q << ' '; cout << endl; } 
-The outer for loop starts by initializing p to point to the first array in ia. That loop continues until we've processed all three rows in ia. The increment, ++p, has the effect of moving p to point to the next row (i.e., the next element) in ia. 
-The inner for loop prints the values of the inner arrays. It starts by making q point to the first element in the array to which p points. The result of *p is an array of four ints. As usual, when we use an array, it is converted automatically to a pointer to its first element. The inner for loop runs until we've processed every element in the inner array. To obtain a pointer just off the end of the inner array, we again dereference p to get a pointer to the first element in that array. We then add 4 to that pointer to process the four elements in each inner array. 
+```c++
+// print the value of each element in ia, with each inner array on its own line 
+// p points to an array of four ints
+for (auto p=ia;p != ia + 3; ++p){
+  // q points to the first element of an array of four ints; that is, q points to an int 
+  for (auto q =*p;q!= *p +4; ++q) 
+    cout << *q << ' '; 
+  cout << endl;
+} 
+```
+
+The outer `for` loop starts by initializing p to point to the first array in `ia`. That loop continues until we've processed all three rows in `ia`. The increment, ++p, has the effect of moving p to point to the next row (i.e., the next element) in `ia`. 
+
+The inner for loop prints the values of the inner arrays. It starts by making `q` point to the first element in the array to which p points. The result of \*p is an array of four ints. As usual, when we use an array, it is converted automatically to a pointer to its first element. The inner for loop runs until we've processed every element in the inner array. To obtain a pointer just off the end of the inner array, we again dereference p to get a pointer to the first element in that array. We then add 4 to that pointer to process the four elements in each inner array. 
+
 Of course, we can even more easily write this loop using the library begin and end functions (§ 3.5.3, p. 118): 
+
+```c++
 // p points to the first array in ia 
-for (auto p = begin(ia); p != end(ia); ++p) { // q points to the first element in an inner array for (auto q = begin(*p); q != end(*p); ++q) 
-cout << *q << ''; // prints the int value to which q points 
-cout << endl; } 
+for (auto p = begin(ia); p != end(ia); ++p) {
+  // q points to the first element in an inner array 
+  for (auto q = begin(*p); q != end(*p); ++q) 
+    cout << *q << ''; // prints the int value to which q points
+  cout << endl; 
+} 
+```
+
 Here we let the library determine the end pointer, and we use auto to avoid having to write the type returned from begin. In the outer loop, that type is a pointer to an array of four ints. In the inner loop, that type is a pointer to int. 
 Type Aliases Simplify Pointers to Multidimensional Arrays 
 A type alias (§ 2.5.1, p. 67) can make it easier to read, write, and understand pointers to multidimensional arrays. For example: 
@@ -3658,6 +3749,7 @@ Subscript operator. obj[i] yields the element at position i from the container o
 operator 
 Arrow operator. Combines the operations of dereference and dot operators: a->b is a synonym for (*a).b. 
 << operator The string library type defines an output operator. The string operator prints the characters in a string. 
+
 >> operator The string library type defines an input operator. The string operator reads whitespace-delimited chunks of characters, storing what is read into the right-hand (string) operand. 
 ! 
 operator 
@@ -5905,8 +5997,12 @@ Note
 Again, the parentheses around *matrix are necessary: 
 int *matrix[10]; // array of ten pointers int (*matrix)[10]; // pointer to an array of ten ints 
 We can also define our function using array syntax. As usual, the compiler ignores the first dimension, so it is best not to include it: 
+
+```c++
 // equivalent definition 
 void print(int matrix[][10], int rowSize) { /* ... */ } 
+```
+
 declares matrix to be what looks like a two-dimensional array. In fact, the parameter is a pointer to an array of ten ints. 
 6.2.5. main: Handling Command-Line Options 
 It turns out that main is a good example of how C++ programs pass arrays to functions. Up to now, we have defined main with an empty parameter list: 
