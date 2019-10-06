@@ -440,7 +440,9 @@ We often need to comment out a block of code during debugging. Because that code
 ```
 
 > ​	**Exercises Section 1.3** 
+>
 > **Exercise 1.7**: Compile a program that has incorrectly nested comments. 
+>
 > **Exercise 1.8**: Indicate which, if any, of the following output statements are legal: 
 >
 > ```C++
