@@ -451,3 +451,48 @@ We often need to comment out a block of code during debugging. Because that code
 > ```
 >
 > After you've predicted what will happen, test your answers by compiling a program with each of these statements. Correct any errors you encounter. 
+
+### 19.6. `union`: A Space-Saving Class
+
+A **union** is a special kind of class. A `union` may have multiple data members, but at any point in time, only one of the members may have a value. When a value is assigned to one member of the `union`, all other members become undefined. The amount of storage allocated for a `union`  is at least as much as is needed to contain its largest data member. Like any class, a `union` defines a new type. 
+
+Some, but not all, class features apply equally to unions. A `union` cannot have a member that is a reference, but it can have members of most other types, including, under the new standard, class types that have constructors or destructors. A `union` can specify protection labels to make members `public`, `private`, or `protected`. By default, like structs, members of a `union` are public. 
+
+A `union` may define member functions, including constructors and destructors. However, a `union` may not inherit from another class, nor may a `union` be used as a base class. As a result, a `union` may not have virtual functions. 
+
+##### Defining a `union` 
+
+unions offer a convenient way to represent a set of mutually exclusive values of different types. As an example, we might have a process that handles different kinds of numeric or character data. That process might define a union to hold these values: 
+
+```c++
+// objects of type Token have a single member, which could be of any of the listed types
+union Token {
+    // members are public by default
+    char cval;
+    int ival;
+    double dval;
+};
+```
+
+A `union` is defined starting with the keyword `union`, followed by an (optional) name for the `union` and a set of member declarations enclosed in curly braces. This code defines a `union` named `Token` that can hold a value that is either a `char`, an `int`, or a `double`. 
+
+##### Using a `union` Type 
+
+##### Anonymous `union` 
+
+##### Managing Union Members That Require Copy Control 
+
+Like the type-specific assignment operators, the copy constructor and assignment operators have to test the discriminant to know how to copy the given value. To do this common work, we'll define a member named `copyUnion`. 
+
+When we call `copyUnion` from the copy constructor, the `union` member will have been default-initialized, meaning that the first member of the union will have been initialized. Because our string is not the first member, we know that the union member doesn't hold a string. In the assignment operator, it is possible that the union already holds a string. We'll handle that case directly in the assignment operator. That way `copyUnion` can assume that if its parameter holds a string, `copyUnion` must construct its own string: 
+
+> ​	**Exercises Section 19.6** 
+>
+> **Exercise 19.21**: Write your own version of the Token class. 
+>
+> **Exercise 19.22**: Add a member of type Sales_data to your Token class. 
+> **Exercise 19.23**: Add a move constructor and move assignment to Token. 
+>
+> **Exercise 19.24**: Explain what happens if we assign a Token object to itself. 
+>
+> **Exercise 19.25**: Write assignment operators that take values of each type in the union. 
