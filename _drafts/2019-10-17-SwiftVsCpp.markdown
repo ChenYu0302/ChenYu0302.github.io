@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Swift vs C++"
 date:   2019-10-17 02:03:56 +0800
-categories: jekyll update
+categories: Program
 ---
-# [Swift](https://swift.org/) vs [C++](https://isocpp.org/ )
+# Swift vs C++
 
 在掌握 C++ 后，学习 Swift 只需关注语法及某些语言特点即可，语言对比版本 C++ 11 与 Swift 5.0 。
 
