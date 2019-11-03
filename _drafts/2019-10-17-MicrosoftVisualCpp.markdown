@@ -8,17 +8,15 @@ categories: Development
 
 Visual C++ 是微软的 C/C++ 开发环境，通过 Windows 操作系统 API（Win32 API）可以开发程序，开发 Windows 平台的桌面应用程序。
 
-* [🔗微软文档 - Windows 平台 C++ 语言开发应用程序](https://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpp)
-* [🔗微软文档  - MFC 桌面应用程序](https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications)
-* *Ivor Horton's Beginning Visual C++ 2013* 中/英文版 ISBN: 978-1-118-84571-4
+* [微软文档 - Windows 平台 C++ 语言开发应用程序](https://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpp)
+* [微软文档  - MFC 桌面应用程序](https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications)
+* *Ivor Horton's Beginning Visual C++ 2013* **ISBN: 978-1-118-84571-4**
 * MFC_类库中文手册.chm
 
 ## 基础设施
 
 *  win32 API 的主要设置用于开发32位或64位应用程序（虽然都叫 Win32 API）。
-*  API 后缀 `W` / 后缀 `A` / 无后缀，表示 双字节字符/ 单字节字符 / 根据当前字符环境选择字节字符。
-
-
+*  API 后缀 `W` / 后缀 `A` / 无后缀，表示 双字节字符/ 单字节字符 / 当前字符环境的字节字符。
 
 类型
 
@@ -33,25 +31,25 @@ Visual Studio 是微软的集成开发环境。[solution 与 project](https://do
 
 #### Debug vs Release
 
-[🔗How to: Debug a Release Build](https://docs.microsoft.com/en-us/cpp/build/how-to-debug-a-release-build)
+[How to: Debug a Release Build](https://docs.microsoft.com/en-us/cpp/build/how-to-debug-a-release-build)
 
 Debug，调试版本，包含调试信息，并且不作任何优化，便于程序员调试程序；Release，发布版本，往往是进行了各种优化，使得程序在代码大小和运行速度上都是最优的，以便用户很好地使用。  
 
 二者区别包括：
 
-* 变量初始化： debug版初始化成0xcc是因为0xcc在x86下是一条`int 3`单步中断指令，这样程序如果跑飞了遇到0xcc就会停下来，这和单片机编程时一般将没用的代码空间填入`jmp 0000`语句是一样 。编程时尤其是指针和数组要做好初始化。
+* 变量初始化： debug 版初始化成 `0xcc` 是因为 `0xcc` 在 x86 平台是一条 `int 3` 单步中断指令，这样程序如果跑飞了遇到 `0xcc` 就会停下来，这和单片机编程时一般将没用的代码空间填入`jmp 0000`语句是一样 。编程时尤其是指针和数组要做好初始化。
 * 数组越界：debug 版数组越界不易察觉；release 版反之。
 * ASSERT()：从其宏定义可知：debug 版编译；release 版不编译。
 
-#### 将调试信息输出到控制台
+#### 将 Debug 信息输出到 Console
 
-添加终端打印头文件：
+添加  Console Input/Output 头文件：
 
 ```c++
 #include "conio.h"
 ```
 
-在初始化函数中，如 `BOOL CDemoDlg::OnInitDialog()` 函数中添加：
+在函数开始运行处分配一个 console：
 
 ```c++
 #ifdef _DEBUG
@@ -62,14 +60,12 @@ Debug，调试版本，包含调试信息，并且不作任何优化，便于程
 随后就可以输出到控制台
 
 ```c++
-
+_cprintf("Some Debug value: %d", var1);
 ```
 
 ## MFC
 
-MFC，Microsoft Foundation Classes，微软基础类库，封装了 Win32 API 等功能，可以开发的具有用户界面的高级程序。MFC 创建的 Windows 的应用程序的窗口组成如下：
-
-<img src="窗口构成.png" alt="1568879313742" style="zoom: 67%;" />
+MFC，Microsoft Foundation Classes，微软基础类库，封装了 Win32 API 等功能，可以开发的具有用户界面的高级程序。
 
 [MFC 层级图](https://docs.microsoft.com/en-us/cpp/mfc/hierarchy-chart)：
 
@@ -85,18 +81,43 @@ MFC 工程组成：
 * **Source** ：源代码，由 `.cpp` 组成。
 * **Resource** ：资源，由 `.rs` 和 `.rs2` 组成，用。在 Resource View  窗口下可进行可视化界面设计。
 
-MFC 的 Wizard 是对代码自动增/查/删/改消息映射、成员变量、成员函数等的工具，免去了手动编写过程。
+### MFC Class Wizard
+
+Wizard 是对代码自动增/查/删/改类、消息映射、成员变量、成员函数等的工具，免去了手动编写过程。
 
 ### 消息响应模型
 
-* Windows 程序是**事件驱动（Event Driven）**的，**鼠标点击/键盘输入/窗口大小调整**都是事件。
-* 事件被记录为消息 （Massage），虽然是 `int` 类型，但是通过宏定义使字面上易于区分。消息包括了自带的**系统消息**和开发者定义的**应用程序消息**，如 `WinUser.h` 中的 `#define WM_LBUTTONDBLCLK 0x0203 ` 定义了鼠标左键点击。
+* Windows 程序是**事件驱动（Event Driven）**的，**鼠标点击/键盘输入/窗口大小调整**等都是事件。
+* **事件**被记录为**消息** （Massage），是 `int` 类型，通过宏定义使字面上易于区分。消息包括了自带的**系统消息**和开发者定义的**应用程序消息**，如 `WinUser.h` 中的 `#define WM_LBUTTONDBLCLK 0x0203 ` 定义了鼠标左键点击事件。
 
-### 用户接口
+### 界面
 
-#### 常用控件
+MFC 创建的 Windows 的应用程序的窗口组成如下：
 
-* Rich Edit
+<img src="窗口构成.png" alt="1568879313742" style="zoom: 67%;" />
+
+#### 菜单栏
+
+#### Dialog
+
+Dialog 的两种显示：
+
+* 模态（禁用 Parent Dialog 的操作），调用 `DoModel()` 。
+* 非模态（允许父对话框的操作）。
+
+#### 对话框控件
+
+button、
+
+* 添加事件处理：
+
+* 添加控件变量：
+  * 在 Resource View 右键某
+
+* 常用控件
+  
+  * Rich Edit
+  
   1. Rich Edit，富文本编辑器，可以显示**自定义颜色/字体/大小等**的富文本的控件。
   2. 在 `CApp` 类的工程 `CXXXApp` 派生类的 `BOOL CXXXApp::InitInstance()` 中，加入 `AfxInitRichEdit();`，初始化富文本编辑器。
 
