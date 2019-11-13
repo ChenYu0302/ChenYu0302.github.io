@@ -31,8 +31,6 @@ $$
 
 ### 十二平均律
 
-![image-20190930022219365](/Users/cy/Library/Application Support/typora-user-images/image-20190930022219365.png)
-
 ### 音程
 
 参考链接
@@ -79,8 +77,16 @@ $$
 参考链接
 
 * [為什麼鋼琴音不準的時候，聽起來會像是音不準？](https://www.youtube.com/watch?v=qSztFE--FuA)
+
+#### 踏板
+
 * [鋼琴下面那三個踏板到底是做什麼用的？](https://www.youtube.com/watch?v=vOqEKw1zsgI)
+* [彈鋼琴要怎麼「換踏板」？（提示：沒有你想的那麼簡單）](https://www.youtube.com/watch?v=4__iwk9Z4_0)
+* [數位鋼琴的踏板，跟真的鋼琴一樣嗎？](https://www.youtube.com/watch?v=wq2KjhKhJN8)
+* [20 個關於鋼琴踏板的小秘訣！](https://www.youtube.com/watch?v=-aDk5KIRHis)
 * 
+
+#### 
 
 ## 曲式
 
@@ -88,3 +94,10 @@ $$
 
 ## 编曲
 
+## 电脑音乐
+
+### 记谱软件
+
+### 抓谱软件
+
+[只有木耳，也可以抓出歌曲裡的和弦嗎？](https://www.youtube.com/watch?v=DA3-sINdvHk)

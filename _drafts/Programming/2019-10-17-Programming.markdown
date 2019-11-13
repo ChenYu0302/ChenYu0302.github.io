@@ -1,11 +1,44 @@
 ---
 layout: post
-title:  "Thinking In Programming"
+title:  "编程"
 date:   2019-10-17 02:03:56 +0800
 categories: Computer Science
+
 ---
 
-# 代码思维
+# 编程
+
+## Git
+
+[Git](https://git-scm.com/) 是一种分布式版本控制技术，参考 [Pro Git Book](https://git-scm.com/book/zh/v2) 学习 Git 的使用。
+
+### 安装与配置
+
+1. 根据操作系统
+2. 查看所有配置情况：``
+
+### Git 实例
+
+1. 获取一个 git  repository 路径：
+
+   1. 在本地建立：`mkdir MyGitProject` `cd .\MyGitProject\`  `git init`
+   2. 从别处 clone：
+
+2. 设置路径内文件过滤规则：在 `MyGitProject` 路径内建立 `.gitignore` ，打开编辑：
+
+   1. 过滤某个文件、某个文件类型、某个文件夹
+
+      ```
+      *.rar
+      
+      ```
+
+   2. 只追踪某个文件、某个文件类型、某个文件夹
+
+      ```
+      
+      ```
+
 
 ## 程序流程
 

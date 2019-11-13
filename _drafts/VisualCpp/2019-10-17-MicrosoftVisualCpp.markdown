@@ -9,8 +9,7 @@ categories: Development
 Visual C++ 是微软的 C/C++ 开发环境，通过 Windows 操作系统 API（Win32 API）可以开发程序，开发 Windows 平台的桌面应用程序。
 
 * [微软文档 - Windows 平台 C++ 语言开发应用程序](https://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpp)
-* [微软文档  - MFC 桌面应用程序](https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications)
-* *Ivor Horton's Beginning Visual C++ 2013* **ISBN: 978-1-118-84571-4**
+* [Ivor Horton's Beginning Visual C++ 2013 by Ivor Horton](https://www.oreilly.com/library/view/ivor-hortons-beginning/9781118845776/)
 * MFC_类库中文手册.chm
 
 ## 基础设施
@@ -18,7 +17,7 @@ Visual C++ 是微软的 C/C++ 开发环境，通过 Windows 操作系统 API（W
 *  win32 API 的主要设置用于开发32位或64位应用程序（虽然都叫 Win32 API）。
 *  API 后缀 `W` / 后缀 `A` / 无后缀，表示 双字节字符/ 单字节字符 / 当前字符环境的字节字符。
 
-类型
+常见类型
 
 * `LPCSTR` ：
 * ` LPCWSTR ` ： Unicode 编码字符串的32位指针。
@@ -27,45 +26,44 @@ Visual C++ 是微软的 C/C++ 开发环境，通过 Windows 操作系统 API（W
 
 Visual Studio 是微软的集成开发环境。[solution 与 project](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio) 的区别为：一个 solution 可以包含一个或多个 project。
 
-### Debug
+### Debug vs Release
 
-#### Debug vs Release
+参考：[How to: Debug a Release Build](https://docs.microsoft.com/en-us/cpp/build/how-to-debug-a-release-build) 。
 
-[How to: Debug a Release Build](https://docs.microsoft.com/en-us/cpp/build/how-to-debug-a-release-build)
+**Debug**，调试版本，包含调试信息，并且不作任何编译优化，供程序员调试；**Release**，发布版本，进行了各种编译优化，使得程序在代码大小和运行速度上都是最优的，供用户使用。二者区别包括：
 
-Debug，调试版本，包含调试信息，并且不作任何优化，便于程序员调试程序；Release，发布版本，往往是进行了各种优化，使得程序在代码大小和运行速度上都是最优的，以便用户很好地使用。  
+1. **ASSERT()**：从其宏定义可知：debug 版编译 Assert；release 版不编译 Assert。Assert 用于断言某些使程序能继续运行的条件，防止程序走向大崩溃。
+2. **变量初始化**： debug 版初始化成 `0xcc` 是因为 `0xcc` 在 x86 平台是一条 `int 3` 单步中断指令，这样程序如果跑飞了遇到 `0xcc` 就会停下来，这和单片机编程时一般将没用的代码空间填入`jmp 0000`语句是一样 。编程时尤其是指针和数组要做好初始化。
+3. **数组越界**：debug 版数组越界不易察觉；release 版反之。
 
-二者区别包括：
+**Tip** - 在 Debug 模式下，输出信息到 Console：
 
-* 变量初始化： debug 版初始化成 `0xcc` 是因为 `0xcc` 在 x86 平台是一条 `int 3` 单步中断指令，这样程序如果跑飞了遇到 `0xcc` 就会停下来，这和单片机编程时一般将没用的代码空间填入`jmp 0000`语句是一样 。编程时尤其是指针和数组要做好初始化。
-* 数组越界：debug 版数组越界不易察觉；release 版反之。
-* ASSERT()：从其宏定义可知：debug 版编译；release 版不编译。
+1. 添加  Console Input/Output 头文件：
 
-#### 将 Debug 信息输出到 Console
+   ```c++
+   #include "conio.h"
+   ```
 
-添加  Console Input/Output 头文件：
+2. 在函数开始运行处分配一个 console：
 
-```c++
-#include "conio.h"
-```
+   ```c++
+   #ifdef _DEBUG
+   	AllocConsole();
+   #endif
+   ```
 
-在函数开始运行处分配一个 console：
+3. 随后就可以输出到控制台
 
-```c++
-#ifdef _DEBUG
-	AllocConsole();
-#endif
-```
-
-随后就可以输出到控制台
-
-```c++
-_cprintf("Some Debug value: %d", var1);
-```
+   ```c++
+   _cprintf("Some Debug value: %d", var1);
+   ```
 
 ## MFC
 
 MFC，Microsoft Foundation Classes，微软基础类库，封装了 Win32 API 等功能，可以开发的具有用户界面的高级程序。
+
+* 参考链接：
+  * [微软文档  - MFC 桌面应用程序](https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications)
 
 [MFC 层级图](https://docs.microsoft.com/en-us/cpp/mfc/hierarchy-chart)：
 
@@ -112,8 +110,9 @@ button、
 * 添加事件处理：
 
 * 添加控件变量：
-  * 在 Resource View 右键某
-
+  
+* 在 Resource View 右键某
+  
 * 常用控件
   
   * Rich Edit
@@ -121,9 +120,11 @@ button、
   1. Rich Edit，富文本编辑器，可以显示**自定义颜色/字体/大小等**的富文本的控件。
   2. 在 `CApp` 类的工程 `CXXXApp` 派生类的 `BOOL CXXXApp::InitInstance()` 中，加入 `AfxInitRichEdit();`，初始化富文本编辑器。
 
-### 例
+### 实例
 
-#### 在限定范围内可调整窗口大小并约束内部控件位置
+#### 设计可调整窗口
+
+在限定范围内可调整窗口大小并约束内部控件位置
 
 1. 使能对话框的调整功能。在 Resource View 中选此对话框，选 `Properties` 的 `Border` 为 `Resizing` 。
 
@@ -132,10 +133,14 @@ button、
    1. `WM_SIZE`，调整对话框后，调用基类的 [`CWnd::OnSize(...)`](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class?view=vs-2019#onsize)。重写此函数处理对话框被大小调整。要约束内部控件的位置和大小，使用 `this->GetDlgItem(...)->MoveWindow(...)` 。注意对话框首次创建时也会调用，此时对话框还不是窗口，使用 `this->IsWindowVisible()` 做判断。首次约束窗口应写在 `OnInitDialog()` 内。
    2. `WM_GETMINMAXI`，调整窗口后，调用基类的 [`CWnd::OnGetMinMaxInfo(...)`](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class?view=vs-2019#ongetminmaxinfo)。重写此函数处理`tagMINMAXINFO` 指针，设置最大和最小
 
-   #### 拖放文件到对话框
+#### 拖放文件到对话框
 
-   1. 在 Resource View 中选此对话框，选 `Properties` 的 `Accept Files` 为 `True` 。
-   2. 在 Resource View 中选此对话框，在 `Message` 添加 
+1. 在 Resource View 中选此对话框，选 `Properties` 的 `Accept Files` 为 `True` 。
+2. 在 Resource View 中选此对话框，在 `Message` 添加 
+
+#### 打包资源文件
+
+要在，可通过打包 Dialog 等资源文件实现。
 
 ## Winuser.h
 
