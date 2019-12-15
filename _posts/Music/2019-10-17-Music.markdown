@@ -1,0 +1,160 @@
+---
+layout: post
+title:  "音乐"
+date:   2019-10-17 02:03:56 +0800
+categories: 音乐
+typora-root-url: ../Music
+---
+
+# 声音
+
+声音在物理上是一种波，介质是空气。 空气振动，表现为疏密发生变化，被人耳捕捉，听见声音。分为乐音，噪音，。乐音有规律
+
+声音四大属性
+
+* 音高：由波的**频率**决定。
+* 音长：由波持续的时值决定。
+* 音色：由泛音列、共振等决定。
+* 响度：
+
+## 音高
+
+> **参考**
+>
+> [混乱博物馆 - 黑白键的故事](https://www.bilibili.com/video/av24192038)
+>
+> [好和弦 - 八分鐘以內，一次搞懂音程名稱！](https://www.youtube.com/watch?v=QLDktqMxgmY&t=9s)
+
+![88Keys](/88Keys.svg)
+
+谱号，Clef，指明五线谱的绝对音高。
+
+## 时值
+
+Tempo
+
+## 音色
+
+[一次搞懂「泛音列」！](https://www.youtube.com/watch?v=0iJmDhNocaQ)
+
+# 调式
+
+**调性（tonal）**与**非调性（atonal）**音乐。
+
+以自然大调为例，来说明音阶中各个音的乐名及其表达的含义：
+
+**主音**：顾名思义，就是“主要之音”。是调中的核心乐音。各种调式音阶中的第一级音，都称为主音。在自然大调的各调中，主音的音名，就是该调的调名。比如我们说C大调，它的主音一定是C。
+
+**属音**：在主音上方的纯五度音，就是属音，顾名思义，有“附属于主音”之意。在通常的七声调式中，它位于音阶的第五级。在音乐中，属音对与主音有强有力的支持作用。
+
+**下属音**：位于主音下方纯五度，故称“下属音”。音程转位后，位于主音上方纯四度。其意义与属音大致相当。在通常的七声调式中，它位于音阶的第四级音。
+ 属音与下属音在音乐中是与主音关系最为密切的两个音。
+
+**上主音**：位于主音上方大二度。音阶中的第二级音。升高八度后，它在属音上方纯五度的位置，是属音的“属音”。所以它是仅次于属音、下属音，而与主音关系极密切的音，又因其在主音的上方，与主音位置最近，故称“上主音”。
+
+**中音**：位于主音上方的三度音，音阶中的第三级音。因在主音与属音的中间，故称为“中音”。
+
+**下中音**：位于主音下方三度音，转位后在主音上方六度音。属于音阶的第六级。因其处于主音与下属音中间，故称“下中音”。在自然大调体系中，下中音是该大调的关系小调的主音，故也有“第二主音”之称。
+
+**导音**：七声调式中的第七级音，叫做“导音”，顾名思义，有“导向主音”之意。在自然大调、和声小调之类的调式中，它在主音上方的大七度音程位置，上距主音的八度音为小二度音程。
+ 这个音在乐曲中往往表现得极不稳定，以至于人们听到它，就会马上想到主音，所以通常用其作为主音的前导过渡。
+
+# 和弦
+
+> **参考**
+>
+> [好和弦 - 十分鐘以內，一次搞懂所有的現代和弦代號！](https://www.youtube.com/watch?v=I0y2LY4sPZA)
+
+## 和弦类型
+
+### 三和弦
+
+### 和弦转位
+
+### 七和弦
+
+### 九和弦
+
+### 十一和弦
+
+### 十三和弦
+
+## 和弦进行
+
+> **参考链接**
+>
+> [好和弦 - 和弦有什麼功能？](https://www.youtube.com/watch?v=kMlJSwFAiTU&t=83s)
+>
+>  [好和弦 - 和弦還有什麼功能？（續集）](https://www.youtube.com/watch?v=1USZt8fx82U)
+
+# 五度圈
+
+> **参考**
+>
+> [好和弦 - 一部影片之內，真的完全搞懂「五度圈」！（Circle of Fifths）](https://www.youtube.com/watch?v=EyF7EBnmdEs)
+>
+> [官大为 GitHub - Circle of Fifths](https://github.com/wiwikuan/wiwi-circleOfFifths)
+>
+> [好和弦 - Circle of Fifths](http://nicechord.com/circle/)
+
+# 五线谱
+
+> **参考**
+>
+> [好和弦 - 不要再犯了！9 種最常見的初學者寫譜錯誤～](https://www.youtube.com/watch?v=EstyZ4Obepk)
+>
+> 
+
+# 音乐风格
+
+## 古典乐
+
+## 爵士乐
+
+## 流行乐
+
+> **参考**
+>
+> [好和弦 - 為什麼流行歌聽起來都這麼像？](https://www.youtube.com/watch?v=wxJImbUCyJw)
+>
+> [好和弦 - 分解和弦伴奏的始祖，阿貝爾替低音！（Alberti Bass）](https://www.youtube.com/watch?v=lmo36o2DExs)
+>
+> 
+
+# 软件
+
+## 记谱软件
+
+> **参考链接**
+>
+> [Muse Score](https://musescore.org) - [Hand Book](https://musescore.org/en/handbook)  [Tutorials](https://musescore.org/en/tutorials) 
+>
+> [Lily Pond](http://lilypond.org)
+
+## 抓谱软件
+
+> **参考链接**
+>
+> [好和弦 - 只有木耳，也可以抓出歌曲裡的和弦嗎？](https://www.youtube.com/watch?v=DA3-sINdvHk)
+
+# 设备
+
+## 数字键盘
+
+> **参考**
+>
+> [好和弦 - 數位鋼琴的踏板，跟真的鋼琴一樣嗎？](https://www.youtube.com/watch?v=wq2KjhKhJN8)
+>
+> [好和弦 - 20 個關於鋼琴踏板的小秘訣！](https://www.youtube.com/watch?v=-aDk5KIRHis)
+
+音乐键盘，Musical Keyboard
+
+## 钢琴
+
+> **参考**
+>
+> [好和弦 - 為什麼鋼琴音不準的時候，聽起來會像是音不準？](https://www.youtube.com/watch?v=qSztFE--FuA)
+>
+> [好和弦 - 鋼琴下面那三個踏板到底是做什麼用的？](https://www.youtube.com/watch?v=vOqEKw1zsgI)
+>
+> [好和弦 - 彈鋼琴要怎麼「換踏板」？（提示：沒有你想的那麼簡單）](https://www.youtube.com/watch?v=4__iwk9Z4_0)
