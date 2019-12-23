@@ -9,11 +9,15 @@ categories: Web
 >
 > 
 
-# 工作环境
+# macOS 环境搭建
 
 Ee
 
-# MarkDown 内容
+# MarkDown 配置
+
+## 引用
+
+> 
 
 ## 代码
 
@@ -27,11 +31,8 @@ int main()
 }
 ```
 
-
-
 ## 公式
 
-排列组合
 $$
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
@@ -54,5 +55,5 @@ $$
 
 ## 视频
 
-## 音乐
+## 音频
 
