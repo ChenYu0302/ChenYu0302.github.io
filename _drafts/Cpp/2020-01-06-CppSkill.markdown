@@ -1,0 +1,58 @@
+---
+layout: post
+title:  "C++ 技巧"
+date:   2019-11-13 02:03:56 +0800
+categories: C++
+---
+
+# 处理字符串
+
+> 参考
+>
+> [c++——CString，string，char*之间的转换](https://blog.csdn.net/liang841451955/article/details/80688287)
+>
+> [许振坪](https://me.csdn.net/benkaoya) - [浅谈C/C++编程中的字符编码转换](https://blog.csdn.net/benkaoya/article/details/59522148)
+
+## 字符编码
+
+C 语言中 `char` 型占 1 byte，bit<0 ~ 6> 用ASCII 码。
+
+宽字符
+
+## 字符串类型
+
+### C语言 `char*`
+
+### C++标准库 `std::string` 
+
+### 微软 `CString` 
+
+微软的。
+
+## 字符串类型间的转换
+
+>  
+>
+> ```c++
+> 
+> ```
+>
+> 
+
+## 字符串与其他类型的转换
+
+## 技巧总结
+
+考虑跨平台
+
+# 指针与内存管理
+
+计算机的随机存储器（RAM），存储着，可以随机访问任意。指针（pointer）
+
+# 性能基准测试
+
+## 时间性能
+
+
+
+# 

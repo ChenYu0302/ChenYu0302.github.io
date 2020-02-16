@@ -1,21 +1,25 @@
 ---
-layout: post
-title:  "音乐"
-date:   2019-10-17 02:03:56 +0800
+layout: blog
+title:  音乐理论
+permalink: /blog/MusicTheory.html
+author: 陈宇
+date: 2019-10-17 02:03:56 +0800
 categories: 音乐
-typora-root-url: ../Music
+tags: 音乐 创作
 ---
 
 # 声音
 
-声音在物理上是一种波，介质是空气。 空气振动，表现为疏密发生变化，被人耳捕捉，听见声音。分为乐音，噪音，。乐音有规律
+声音在物理上是一种波，介质是空气。 空气振动，表现为疏密发生变化，被人耳捕捉，听见声音。
 
-声音四大属性
+声音分为乐音、噪音。乐音有规律振动。
+
+声音四大属性：
 
 * 音高：由波的**频率**决定。
 * 音长：由波持续的时值决定。
 * 音色：由泛音列、共振等决定。
-* 响度：
+* 响度：震荡幅度决定。
 
 ## 音高
 
@@ -25,7 +29,7 @@ typora-root-url: ../Music
 >
 > [好和弦 - 八分鐘以內，一次搞懂音程名稱！](https://www.youtube.com/watch?v=QLDktqMxgmY&t=9s)
 
-![88Keys](/88Keys.svg)
+![88Keys](/assets/88Keys.svg)
 
 谱号，Clef，指明五线谱的绝对音高。
 
@@ -156,6 +160,8 @@ Tempo
 > **参考链接**
 >
 > [好和弦 - 只有木耳，也可以抓出歌曲裡的和弦嗎？](https://www.youtube.com/watch?v=DA3-sINdvHk)
+
+使用来源的 Sonic Visualiser 打开音频文件，
 
 # 设备
 

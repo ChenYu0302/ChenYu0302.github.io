@@ -1,5 +1,5 @@
 ---
-layout: resume
+layout: page
 title: 关于我
 permalink: /AboutMe
 ---
