@@ -1,17 +1,13 @@
 ---
-layout: post
-title:  "组合数学 学习笔记"
+layout: blog
+title:  数学的程序实现
 date:   2019-10-17 02:03:56 +0800
-categories: Algorithm
+categories: 开发
 ---
 
-> **参考**
->
-> [维基百科 - 组合数学](https://zh.wikipedia.org/wiki/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6)
->
-> wiki - 
->
-> [清华大学 - 组合数学](https://next.xuetangx.com/course/THU08091000450/1075957)
+# 组合数学
+
+> 
 >
 > [小与米 - next_permutation(全排列算法)](https://blog.csdn.net/c18219227162/article/details/50301513)
 >
@@ -23,7 +19,13 @@ categories: Algorithm
 
 ## 数学定义
 
-$U_n^r=\frac{n!}{(n-r)!}$ 
+> 参考
+>
+> [维基百科 - 组合数学](https://zh.wikipedia.org/wiki/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6)
+>
+> [清华大学公开课 - 组合数学](https://next.xuetangx.com/course/THU08091000450/1075957)
+
+$U_n^r=\frac{n!}{(n-r)!}$ ，。
 
 arrangement ，**排列**，数学上所有排列可能性： $A_n^r=\frac{n!}{(n-r)!}$ ， $A_n^0=1$ ，$A_n^1=n$ ，$A_n^n=n!$。 中国大陆的教科书通常称排列为 Arrangement ，记为 $A$ 。
 
@@ -397,10 +399,6 @@ inline bool next_comnbination_indexes(std::vector<unsigned int> &vi, const unsig
 }
 ```
 
-
-
- 
-
 泛型迭代器的通用版代码
 
 ```c++
@@ -489,3 +487,6 @@ inline bool next_combination(BidIt n_begin, BidIt n_end,
 ```
 
 #### 基于递归实现
+
+# 线性代数
+

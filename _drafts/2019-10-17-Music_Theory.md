@@ -61,6 +61,12 @@ Tempo
 
 [一次搞懂「泛音列」！](https://www.youtube.com/watch?v=0iJmDhNocaQ)
 
+# Harmony 和声
+
+和声研究分析和弦的进行，这体现了
+
+Harmony study includes the analysis of chord progressions to show important relationships between chords and the key a song is in. 歌词与旋律不属和声学范畴。
+
 # 调式
 
 **调性（tonal）**与**非调性（atonal）**音乐。
@@ -83,7 +89,13 @@ Tempo
 **导音**：七声调式中的第七级音，叫做“导音”，顾名思义，有“导向主音”之意。在自然大调、和声小调之类的调式中，它在主音上方的大七度音程位置，上距主音的八度音为小二度音程。
  这个音在乐曲中往往表现得极不稳定，以至于人们听到它，就会马上想到主音，所以通常用其作为主音的前导过渡。
 
-# 和弦
+唱名，solfege，DoReMiFaSolLaTi
+
+音名，note names，CDEFGAB
+
+音级，
+
+# Chord 和弦
 
 > **参考**
 >

@@ -15,13 +15,16 @@ tags: 开发 计算机网络
 > * [Mike Dane](https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw) - [Web Development](https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw/playlists?view=50&sort=dd&shelf_id=3)，快速入门 HTML & CSS & JavaScript。
 > * [mmtuts](https://www.youtube.com/channel/UCzyuZJ8zZ-Lhfnz41DG5qLw) -[HTML and CSS Tutorials](https://www.youtube.com/watch?v=TKYsuU86-DQ&list=PL0eyrZgxdwhwNC5ppZo_dYGVjerQY3xYU) / [JavaScript Tutorials](https://www.youtube.com/watch?v=ItYye9h_RXg&list=PL0eyrZgxdwhxNGMWROnaY35NLyEjTqcgB) ，HTML & CSS & JavaScript 视频教程。
 > * [Learn X in Y minutes](https://learnxinyminutes.com) : [html](https://learnxinyminutes.com/docs/html/) / [css](https://learnxinyminutes.com/docs/css/) / [javascript](https://learnxinyminutes.com/docs/javascript/) ，编程语言语法速成。
->* *[Learning Web Design, 5th Edition, ISBN: 978-1-491-96020-2](https://www.oreilly.com/library/view/learning-web-design/9781491960196/)* ，Web 开发完整教程。
-> * [W3School](https://www.w3schools.com)  [W3School.cn](https://www.w3school.com.cn/) ，全世界最大的 Web 开发网站。
+> * *[Learning Web Design, 5th Edition, ISBN: 978-1-491-96020-2](https://www.oreilly.com/library/view/learning-web-design/9781491960196/)* ，Web 开发完整教程。
+> * [W3School](https://www.w3schools.com) ，全世界最大的 Web 开发网站。
+> *  [W3School.cn](https://www.w3school.com.cn/) ，中文版。
 > * [MDN Web 文档](https://developer.mozilla.org/zh-CN/docs/Learn) ，Web 开发社区，每个人都可学习与贡献。
 
 # HTML - 内容与结构
 
-HTML，HyperText Markup Language，超文本标记语言，后缀名 `.html` 的文本文件，浏览器打开后生成网页。
+HTML，Hyper Text Markup Language，超文本标记语言，后缀名 `.html` 的文本文件，浏览器打开后生成网页。
+
+标记语言不是编程语言，只有结构描述，没有逻辑。
 
 由 `<TagName>TagValue<\TagName>` 的标签结构，多级嵌套而构成，描述了网页的内容。
 
