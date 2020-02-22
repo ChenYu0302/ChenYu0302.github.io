@@ -1,16 +1,17 @@
 ---
 layout: post
-title:  "iOS 应用程序开发"
+title:  iOS macOS 程序开发汇总
+englishtitle:  iOS macOS App Development Summary
 date:   2019-10-17 02:03:56 +0800
 categories: Apple
 ---
 > 参见
 >
-> [Apple Developer](https://developer.apple.com)
+> [Apple Developer](https://developer.apple.com) ，苹果开发者官网。
 >
-> [Apple Developer - Documentation](https://developer.apple.com/documentation)
+> [Apple Developer - Documentation](https://developer.apple.com/documentation) ，苹果开发手册文档，Xcode 自带。
 >
-> [Apple Books  - The Swift Programming Language.ePub](https://books.apple.com/us/book-series/swift-programming-series/id888896989)
+> [Apple Books  - The Swift Programming Language.ePub](https://books.apple.com/us/book-series/swift-programming-series/id888896989) ，
 >
 > [Apple Books  - Everyone can Code Series](https://books.apple.com/us/book-series/everyone-can-code/id1118575554)
 >
@@ -115,7 +116,11 @@ Swift 使用自动引用计数（ARC, Automatic Reference Counting）机制来�
 * UI - UIKit 框架的简写，编写 iOS 应用程序用户交互界面。
 * CG - Core Graphic 框架的简写，常用于绘制自定义视图，纯C的API，使用 Quartz2D 做引擎。
 
-# Xcode
+## UIKit - iOS 应用程序框架
+
+## AppKit - macOS 应用程序框架
+
+# Xcode - 苹果生态集成开发工具
 
 Xcode 是苹果公司推出的 IDE ，用于开发苹果系统下的应用程序。
 
@@ -140,13 +145,18 @@ project利用他们去编译我们所需的product，也帮我们组织它们之
 
 [Documentation Archive](https://developer.apple.com/library/archive/navigation/) 
 
-# 连接
+# 拾遗
 
-> iOS 开发者
+> ###### 如何在低版本 Xcode 实现在高版本的 iOS 设备上真机调试？
 >
-> * [Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw) 
-> * [Mark Moeykens](https://www.youtube.com/channel/UChH6WbyYeX0INJjrK2-6WSg)
-> * [Lets Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA) 
-> * [Sean Allen](https://www.youtube.com/channel/UCbTw29mcP12YlTt1EpUaVJw) 
-> * [raywenderlich.com](https://www.youtube.com/channel/UCz3cM4qLljXcQ8oWjMPgKZA)
+> 如果 iOS ，而 Xcode ，那么。
+
+> 参见
+>
+> * iOS 开发者
+>   * [Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw) 
+>   * [Mark Moeykens](https://www.youtube.com/channel/UChH6WbyYeX0INJjrK2-6WSg)
+>   * [Lets Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA) 
+>   * [Sean Allen](https://www.youtube.com/channel/UCbTw29mcP12YlTt1EpUaVJw) 
+>   * [raywenderlich.com](https://www.youtube.com/channel/UCz3cM4qLljXcQ8oWjMPgKZA)
 

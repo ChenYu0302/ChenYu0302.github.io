@@ -1,23 +1,25 @@
 ---
 layout: post
-title:  "数据结构"
+title:  算法
 date:   2019-12-03 00:55:30 +0800
 categories: 计算机科学
 ---
-
-> [Data Structures Easy to Advanced Course - Full Tutorial from a Google Engineer](https://www.youtube.com/watch?v=RBSGKlAvoiM)
->
-> 
 
 # 数据结构与算法
 
 > 参考
 >
-> 算法图解 ISBN，漫画。
+> *算法图解 ISBN*，漫画形式入门科普算法。
 >
-> 
+> 清华大学邓俊辉数据结构[公开课](https://www.bilibili.com/video/av49361421)、教材。
+>
+> [Data Structures Easy to Advanced Course](https://www.youtube.com/watch?v=RBSGKlAvoiM)，谷歌工程师8小时数据结构教程。
 
-算法，Algorithm，是一组完成任务的指令，任何代码片段都可视为算法，在编程时采用更好的算法可以有更少的时间和空间的开销。
+数据结构，data structure，DS，组织某些数据使其可以更高效地使用（如访问，更新等）。
+
+算法，algorithm，是一组完成任务的指令，任何代码片段都可视为算法，在编程时采用更好的算法可以有更少的时间和空间的开销。
+
+
 
 ## 大——衡量复杂度
 

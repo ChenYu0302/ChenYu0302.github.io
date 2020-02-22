@@ -29,7 +29,7 @@ tags: 音乐 创作
 >
 > [好和弦 - 八分鐘以內，一次搞懂音程名稱！](https://www.youtube.com/watch?v=QLDktqMxgmY&t=9s)
 
-![88Keys](/assets/88Keys.svg)
+![88Keys](../assets/Art/Music/88Keys.svg)
 
 谱号，Clef，指明五线谱的绝对音高。
 
@@ -60,6 +60,8 @@ Tempo
 ## 音色
 
 [一次搞懂「泛音列」！](https://www.youtube.com/watch?v=0iJmDhNocaQ)
+
+# 音律
 
 # Harmony 和声
 

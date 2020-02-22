@@ -16,9 +16,13 @@ tags: 开发 计算机网络
 > * [mmtuts](https://www.youtube.com/channel/UCzyuZJ8zZ-Lhfnz41DG5qLw) -[HTML and CSS Tutorials](https://www.youtube.com/watch?v=TKYsuU86-DQ&list=PL0eyrZgxdwhwNC5ppZo_dYGVjerQY3xYU) / [JavaScript Tutorials](https://www.youtube.com/watch?v=ItYye9h_RXg&list=PL0eyrZgxdwhxNGMWROnaY35NLyEjTqcgB) ，HTML & CSS & JavaScript 视频教程。
 > * [Learn X in Y minutes](https://learnxinyminutes.com) : [html](https://learnxinyminutes.com/docs/html/) / [css](https://learnxinyminutes.com/docs/css/) / [javascript](https://learnxinyminutes.com/docs/javascript/) ，编程语言语法速成。
 > * *[Learning Web Design, 5th Edition, ISBN: 978-1-491-96020-2](https://www.oreilly.com/library/view/learning-web-design/9781491960196/)* ，Web 开发完整教程。
-> * [W3School](https://www.w3schools.com) ，全世界最大的 Web 开发网站。
-> *  [W3School.cn](https://www.w3school.com.cn/) ，中文版。
+> * [W3School](https://www.w3schools.com)，全世界最大的 Web 开发网站。
+> * [W3School.cn](https://www.w3school.com.cn/) ，中文版。
 > * [MDN Web 文档](https://developer.mozilla.org/zh-CN/docs/Learn) ，Web 开发社区，每个人都可学习与贡献。
+
+前端，frontend，面向浏览器开发，负责网页多媒体；后端，backend，面向服务器开发，负责应用程序和数据库。 
+
+Internet，英特网；web，。
 
 # HTML - 内容与结构
 
@@ -63,19 +67,19 @@ Less
 
 > 特点：
 >
-> * 脚本语言——从头到尾一步一步逐行执行。
+> * 动态语言——不编译，从头到尾一步一步逐行执行脚本。
 >
 > * 弱类型——无需定义变量和函数返回值的类型。
 > * 
 
 ```javascript
-// 单行注释
+// C风格单行注释
 /*
- 多行注释
+ C风格多行注释
 */
 
 doSometing(); // 语句(statement)以分号结尾
-doSometing() // 默认也会在每行插入隐式分号，但不建议
+doSometing() // 默认也会在换行处插入隐式分号，但不建议
 
 /* --- 内置类型 --- */
 3; 1.5;// 所有的数值类型都是浮点数（64位 IEEE 754 双精度浮点）

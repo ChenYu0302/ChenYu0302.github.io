@@ -9,49 +9,55 @@ categories: 开发
 tags: 计算机网络
 ---
 
-基于 [Jekyll](https://jekyllrb.com) 这一 Web 前端框架，搭建我的个人网站。实现了将 Markdown 文档生成静态网站，以及各种自定义功能。
+基于 [Jekyll](https://jekyllrb.com) 框架，搭建我的个人网站。
 
 ------
 
-参见 [官方文档逐步教程](https://jekyllrb.com/docs/step-by-step/01-setup/) 、[Mike Dane](https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw) - [Jekyll - Static Site Generator Tutorial](https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB)，搭建我的网站：
+参见 [官方文档逐步教程](https://jekyllrb.com/docs/step-by-step/01-setup/) 、[Mike Dane](https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw) - [Jekyll - Static Site Generator Tutorial](https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB)，逐步搭建我的网站：
 
 1. 搭建开发环境，参见 [官网 macOS 环境搭建](https://jekyllrb.com/docs/installation/macos/) ：
    1. 安装 `Ruby >= 2.4.0` 。[Ruby](https://www.ruby-lang.org/zh_cn/) 是用于开发 Jeykll 框架的编程语言。macOS 自带 Ruby ，可以在终端输入 `ruby -v` 查看可执行的 Ruby 版本，输入 `which ruby` 查看可执行的 Ruby 路径。
       - 对于 Catalina ，系统自带 `Ruby 2.6.3` 。
-      - 对于 Mojave 及其更早的操作系统，系统自带位于 [/usr/bin/ruby](/usr/bin/ruby) 的 `Ruby 2.3.7`，不满足版本要求。在安装了 [homebrew](https://brew.sh) 的前提下，输入 `brew install ruby` 命令更新 Ruby。最新的 Ruby 安装到 [/usr/local/lib/ruby/gems](/usr/local/lib/ruby/gems) 路径。这不会覆盖系统自带的 `Ruby` 版本，兼容性。输入`export PATH=/usr/local/opt/ruby/bin:$PATH` 命令更改 `PATH` 路径，再输入 `ruby -v` 就可查看到可执行的 Ruby 是最新版本。
-   2. 安装 [Bundler](https://jekyllrb.com/docs/ruby-101/#bundler) 。加上 `bundler exec` 前缀。[Gemfile](https://jekyllrb.com/docs/ruby-101/#gemfile)
-   3. 安装 Jeykll。RubyGem 用于管理实现各种功能的封装包，例如 Jeykll 及其各种主题、插件。https://rubygems.org 可获取各种 gem 。输入 `gem install --user-install bundler jekyll` 命令安装 `Jeykll` 。
-   4. 安装后的 gem 位于 [/usr/local/lib/ruby/gems](/usr/local/lib/ruby/gems) 。
+      - 对于 Mojave 及其更早的操作系统，系统自带位于 [/usr/bin/ruby](/usr/bin/ruby) 的 `Ruby 2.3.7`，不满足版本要求。在安装了 [homebrew](https://brew.sh) 的前提下，输入 `brew install ruby` 命令更新 Ruby。最新的 Ruby 安装到 [/usr/local/lib/ruby/gems](/usr/local/lib/ruby/gems) 路径。这不会覆盖系统自带的 `Ruby` 版本，兼容性。输入`export PATH=/usr/local/opt/ruby/bin:$PATH` 命令加入 brew 的 `PATH` 路径，再输入 `ruby -v` 就可查看到可执行的 Ruby 是最新版本。
+   3. 安装 Jeykll。`gem install jekyll bundler` 命令用于安装 Jekyll gem。gem 是 ruby 项目封装包。Jekyll 框架、Jekyll 的各种主题和插件都是 gem。安装后的 gem 位于 [/usr/local/lib/ruby/gems](/usr/local/lib/ruby/gems) 。
    
-2. 新建项目。
-  
-   * ``，
-   * 
-     * _config.yml，网站的各种设置（键值对）。更新后需 `` 命令。`
-     * Gemfile，记录所需的 Gem。更新文本后需 `bundle install` 命令从网络获取 Gem 。使用 `bundle update` 命令更新 Gem 。
-     * _site 文件夹，存放最终生成的静态网站，可直接放到服务器上部署。会随网站内容改变而更新。
-   
-3. 编写博客。_post 文件夹，存放发布的 Markdown 。输入 `bundle exec jekyll serve` 可生成发布网页。 _draft 文件夹，存放草稿 Markdown 。输入 `bundle exec jekyll serve --draft` 可生成草稿网页。前言 font matter 包含了
+2. 新建项目。参见 [官网命令行使用](https://jekyllrb.com/docs/usage/)。`jekyll new myblog` 命令用于在当前路径创建一个名为 myblog 的 Jekyll 项目。输入 `bundle exec jekyll serve`  生成一个会实时更新内容的本地网站；输入 `bundle exec jekyll build`  生成一个 _site 文件夹下的静态网站。
 
-4. 部署网站。
+   Gemfile，记录所需的 Gem。更新文本后需 `bundle install` 命令从网络获取 Gem 。使用 `bundle update` 命令更新 Gem 。_site 文件夹，存放最终生成的静态网站，可直接放到服务器上部署。会随网站内容改变而更新。
+
+3. 更改配置。
+  
+   1. 在 _config.yml，网站的各种设置（键值对）。更新后需 `` 命令。`
+4. 编写博客。_post 文件夹，存放发布的 Markdown 。 _draft 文件夹，存放草稿 Markdown 。输入 `bundle exec jekyll serve --draft` 可生成草稿网页。
+
+   前言 front matter 包含了页面的各种键值对，我的设置如下
+
+   > layout: 在 _layout 选定的布局
+   > title:  页面的标题
+   > englishtitle: 页面的英文标题
+   > permalink: 页面的 url 连接
+   > author: 作者名字
+   > lang: 页面语言
+   > date: 日期
+   > categories: 分类
+   > tags: 标签
+
+5. 部署网站。
    1. 部署到 GitHub Page。
    2. 将 `-site` 文件夹作为根目录拷贝到服务器即可。
-
-5. 重写/设计页面。默认主题是 `m` ，输入 `c` 命令。在 `.html` 中嵌入分支/循环。
+6. 重写/设计页面。默认主题是 `m` ，输入 `c` 命令。在 `.html` 中嵌入分支/循环。
    1. 设计页面布局。`_layout` 文件夹。默认的 主题 `default.html` 和 `` 两种布局，在此文件夹
    2. 设计页面成员。`_include` 文件夹。
-
-6. 配置 Markdown 选项。参见 [官网 Markdown 选项](https://jekyllrb.com/docs/configuration/markdown/) 。Jeykll 使用 [kramdown](https://kramdown.gettalong.org/index.html)  作为 Markdown 渲染引擎。由于我使用 [Typora](https://typora.io/) 作为 markdown 编辑器，故要求把 Karmdown 配置成生成的网页与 [Typora](https://typora.io/) 的查看有相同效果。
+7. 配置 Markdown 选项。参见 [官网 Markdown 选项](https://jekyllrb.com/docs/configuration/markdown/) 。Jeykll 使用 [kramdown](https://kramdown.gettalong.org/index.html)  作为 Markdown 渲染引擎。由于我使用 [Typora](https://typora.io/) 作为 markdown 编辑器，故要求把 Karmdown 配置成生成的网页与 [Typora](https://typora.io/) 的查看有相同效果。
    1. 实现 [GitHub Favored Markdown](https://github.github.com/gfm/) 主题外观。
    2. 实现 [MathJax](https://www.mathjax.org/) 作为数学公式渲染引擎。 
-
-7. 配置主题。理论上只要在默认主题上修改就可以，但也可以主题 gem。在 `Gemfile` 。 `_` 。如：
+8. 配置主题。理论上只要在默认主题上修改就可以，但也可以主题 gem。在 `Gemfile` 。 `_` 。如：
    - **Prologue**，深色边栏的博客模板，[GitHub](https://github.com/chrisbobbe/jekyll-theme-prologue)，[Demo](https://chrisbobbe.github.io/jekyll-theme-prologue/)。
    - **Modern Resume**，单页简历模板，[Demo](https://sproogen.github.io/modern-resume-theme/)。
 
 ------
 
-通用 Markdown 效果：apple
+通用 Markdown 效果：
 
 ------
 
@@ -85,9 +91,9 @@ tags: 计算机网络
 
 [谷歌]: https://www.google.com
 
-苹果公司[^苹果].
+苹果公司[^苹果公司] 在 2019 年发布了 iPhone 11 。
 
-[^苹果]: 这是 *text* of the **footnote**.
+[^苹果公司]: 计算机公司
 
 ------
 
