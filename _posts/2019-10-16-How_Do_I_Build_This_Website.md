@@ -36,7 +36,7 @@ tags: 计算机网络
    > tags: 标签
 
 6. 配置 Markdown 选项。参见 [官网 Markdown 选项](https://jekyllrb.com/docs/configuration/markdown/) 。Jeykll 使用 [kramdown](https://kramdown.gettalong.org/index.html)  作为 Markdown 渲染引擎。由于我使用 [Typora](https://typora.io/) 作为 markdown 编辑器，故要求把 Karmdown 配置成生成的网页与 [Typora](https://typora.io/) 的查看有相同效果。
-   
+  
    1. 实现 [GitHub Favored Markdown, GFM](https://github.github.com/gfm/) 主题外观。
    2. 实现 [MathJax](https://www.mathjax.org/) 作为数学公式渲染引擎。 
    

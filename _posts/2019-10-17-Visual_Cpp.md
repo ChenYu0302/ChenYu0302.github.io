@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title:  "Microsoft Visual C++"
 date:   2019-10-22 02:03:56 +0800
 categories: Microsoft

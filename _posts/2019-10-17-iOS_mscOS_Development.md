@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title:  iOS macOS 程序开发
 englishtitle:  iOS macOS App Development Summary
 date:   2019-10-17 02:03:56 +0800
