@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  iOS macOS 程序开发汇总
+title:  iOS macOS 程序开发
 englishtitle:  iOS macOS App Development Summary
 date:   2019-10-17 02:03:56 +0800
 categories: Apple
@@ -9,15 +9,61 @@ categories: Apple
 >
 > [Apple Developer](https://developer.apple.com) ，苹果开发者官网。
 >
-> [Apple Developer - Documentation](https://developer.apple.com/documentation) ，苹果开发手册文档，Xcode 自带。
+> [Apple Developer - Documentation](https://developer.apple.com/documentation) ，苹果开发手册文档。
 >
-> [Apple Books  - The Swift Programming Language.ePub](https://books.apple.com/us/book-series/swift-programming-series/id888896989) ，
->
-> [Apple Books  - Everyone can Code Series](https://books.apple.com/us/book-series/everyone-can-code/id1118575554)
->
-> [podcasts - Stanford - Developing iOS11 Apps with Swift](https://podcasts.apple.com/cn/podcast/developing-ios-11-apps-with-swift/id1315130780)
+> [Apple Books  - Everyone can Code Series](https://books.apple.com/us/book-series/everyone-can-code/id1118575554) ，苹果发起的人人可编程项目。
 
-# iOS 概述
+# 斯坦福大学 iOS 开发学习笔记
+
+此学习笔记用于记录坦福大学工程学院 2017 年秋季 CS193P 公开课 —— [Swift 开发 iOS 11  应用程序](https://podcasts.apple.com/cn/podcast/developing-ios-11-apps-with-swift/id1315130780) 。此课程共计 17 节长课， 3 节知识扩展短课。
+
+L1：介绍 iOS 、Xcode、Siwft 。
+
+​	iOS 系统从上至下的四个层级 Cocoa Touch - Media - Core Services - Core OS 。
+
+L2：MVC 设计模式
+
+L3：Swift 编程语言
+
+L4：Siwft 编程语言补充
+
+L5：
+
+L6：
+
+L7：
+
+
+
+L8：
+
+
+
+L9：
+
+
+
+L10：多线程与自动布局
+
+
+
+L11：拖放、列表、集合。
+
+
+
+L12：
+
+
+
+L5：
+
+
+
+L5：
+
+
+
+# iOS / macOS 开发概念
 
 [iOS](https://www.apple.com/ios) 是苹果公司为其移动设备所开发的操作系统，运行于 iPhone、iPad、iPod touch 电子产品上。iOS 最初随第一代 iPhone 亮相于 2007 年，旨在设计一款移动版的 [macOS](https://www.apple.com/macos) 。与 macOS 一样，iOS 的操作系统核心基于 Darwin 的类 Unix 系统，属于 BSD 操作系统家族，与 macOS 的主要区别包括：
 
@@ -36,6 +82,10 @@ iOS 的层次结构下表所示，越往上越接近用户交互操作，越往�
 
 在开发 iOS 应用程序时，应该尽量使用上层的框架来代替下面的框架。因为更高层次的框架是对底层框架基于对象的抽象封装。
 
+命名规范。
+
+
+
 # Swift 编程语言
 
 > 参见
@@ -48,9 +98,62 @@ Swift 随苹果公司在 2014 年苹果开发者年会（WWDC）首次亮相。
 
 与 C、C++、Objective – C ，共属于 C 语言家族。通过 LLVM 编译器，将代码文本编译为二进制文件，直接输给处理器高效执行；Swift语言的语法经过精心的优化，遵循规则而设计的程序阅读起来非常接近人类的自然语言。
 
-Swift是一门面向对象编程语言，所有的类都继承于 NSObject 类，在类与结构体的属性与方法前加入关键字实现访问控制，包括了私有```private```、公开```public```、只读```private (set)```等，同时使用as关键字可以将实例的类型转换为其父类或子类。
+Swift是一门面向对象编程语言，所有的类都继承于 NSObject 类，
 
 [The Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#) [基础内容](https://www.cnswift.org/the-basics)
+
+> 变量与常量
+>
+> ```swift
+> let maximumNumberOfLoginAttempts = 10	// 声明一个常量，不可重新赋值。
+> var currentLoginAttempt = 0				// 声明一个变量，可重新赋值。
+> var x = 0.0, y = 0.0, z = 0.0			// 在同一行内声明多个变量
+> 
+> var welcomeMessage: String		// 声明变量时指明此变量的类型，并不赋值。
+> welcomeMessage = "Hello"		// 后期可以用字符串值赋值。
+> var red, green, blue: Double	// 在同一行内声明同类型的多个变量
+> 
+> let π = 3.14159			// Unicode 字符可以作为变量名与常量名
+> let 你好 = "你好世界"		// 不可有空格、数学、
+> let 🐶🐮 = "dogcow"		// 用(`)包围的 Swift 关键字也可以，但不建议。
+> 
+> print(你好)	// print 函数用于打印常量与变量
+> ```
+>
+> 注释
+>
+> ```swift
+> // 与C家族语言一样，这是行注释。
+> 
+> /*
+> 与C家族语言一样，
+> 这是块注释。
+> */
+> ```
+>
+> 分号
+>
+> 整数
+>
+> 浮点数
+>
+> 类型安全与类型推断
+>
+> 数值型字面值
+>
+> 类型别名
+>
+> ```Swift
+> typealias AudioSample = UInt16
+> ```
+>
+> bool value 布尔值
+>
+> tumple 元组
+>
+> error handling 错误处理
+>
+> 断言和先决条件
 
 [Basic Operators](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html) [基本运算符](https://www.cnswift.org/basic-operators)
 
@@ -74,6 +177,20 @@ Swift是一门面向对象编程语言，所有的类都继承于 NSObject 类�
 
 [Subscripts](https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html) [下标](https://www.cnswift.org/subscripts)
 
+> 
+>
+> ```swift
+> // 内置集合类型的下标运算符用来访问成员元素
+> someArray[index]		// 依据索引访问数组的成员元素
+> someDictionary[key]		// 依据键访问字典的成员元素
+> ```
+>
+> 
+
+
+
+
+
 [Inheritance](https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html) [继承](https://www.cnswift.org/inheritance)
 
 [Initialization](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html) [初始化](https://www.cnswift.org/initialization)
@@ -85,6 +202,8 @@ Swift是一门面向对象编程语言，所有的类都继承于 NSObject 类�
 [Error Handling](https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html) [错误处理](https://www.cnswift.org/error-handling)
 
 [Type Casting](https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html) [类型转换](https://www.cnswift.org/type-casting)
+
+同时使用 as 关键字可以将实例的类型转换为其父类或子类。
 
 [Nested Types](https://docs.swift.org/swift-book/LanguageGuide/NestedTypes.html) [内嵌类型](https://www.cnswift.org/nested-types)
 
@@ -105,6 +224,8 @@ Swift 使用自动引用计数（ARC, Automatic Reference Counting）机制来�
 [Memory Safety](https://docs.swift.org/swift-book/LanguageGuide/MemorySafety.html) [内存安全性](https://www.cnswift.org/memory-safety)
 
 [Access Control](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) [访问控制](https://www.cnswift.org/access-control)
+
+在类与结构体的属性与方法前加入关键字实现访问控制，包括了私有```private```、公开```public```、只读```private (set)```等，
 
 [Advanced Operators](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html) [高级运算符](https://www.cnswift.org/advanced-operators)
 

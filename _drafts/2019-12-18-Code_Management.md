@@ -10,15 +10,20 @@ tags: 音乐 创作
 
 # 版本控制系统 
 
-## Git 分布式
+版本控制
 
-# Git
+## Git 分布式版本控制系统
 
 > 参考
 >
 > * [git - 简明指南](https://www.runoob.com/manual/git-guide/)
->
 > * [Pro Git Book](https://git-scm.com/book/zh/v2) 
+
+前往 Git 官网的下载页面，下载所用操作系统下的 git 安装包。
+
+# Git
+
+> * 
 
 [Git](https://git-scm.com/) 是一种分布式版本控制技术，基于哈希值校验的原理，类似于“快照”，记录文件发生的修改，可在不同的版本之间实现查看修改、撤销、分支、合并等操作，参考。
 

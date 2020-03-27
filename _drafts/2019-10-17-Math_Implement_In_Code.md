@@ -107,7 +107,7 @@ bool next_permutation(BidirectionalIterator first,BidirectionalIterator last)
 
 #### 基于字典序实现 next_combination 函数
 
-以 $C_{10}^4=\frac{10!}{(10-4)!4!}$ 为例，所有的组合按字典序排列，{0,1,2,3} 为最小字典序的合组索引，{6,7,8,9} 为最大字典序的组合索引：
+以 $C_{10}^4=\frac{10!}{(10-4)!4!}$ 为例，所有的组合按字典序排列，{A,B,C,D} 为最小字典序的合组索引，{G,H,I,J} 为最大字典序的组合索引：
 
 ```c++
 [A] [B] [C] [D]  E   F   G   H   I   J  
@@ -322,13 +322,18 @@ bool next_permutation(BidirectionalIterator first,BidirectionalIterator last)
  A   B   C   D   E   F  [G] [H] [I] [J]
 ```
 
-参考上面的规律，仿照 `std::next_permutation`，设计一个 `next_combination_indexes` 函数：
+在 n 个元素里找 i 个的组合，总共有为 $C_n^r$ 种可能，观察上面的规律，仿照 `std::next_permutation`，设计一个 `next_combination_indexes` 函数：
 
-* `std::vector` 型参数  `vi` 保存n的索引组合；
+* `std::vector` 型参数  `vi` 保存n的索引组合，成员有 i 个；
 * 参数 `n_count` 表示 n 的个数；
 * `bool` 型返回值，`true` 表示能为 `vi` 找到下一个组合，并替换了原来序列的排序；`false` 表示因为已经是最大字典序，已经没有下一个组合，原来序列的排序没有发生改变。
 
 ```c++
+/**
+ @para vi		Combianations vector.
+ @para n_count	
+ @return True for get next comnbination succeed. False for get next comnbination fail.
+*/
 inline bool next_comnbination_indexes(std::vector<unsigned int> &vi, const unsigned int n_count)
 {
     if (vi.size() == 0)

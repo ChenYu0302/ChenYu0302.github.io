@@ -3,6 +3,7 @@ layout: post
 title:  "Microsoft Visual C++"
 date:   2019-10-22 02:03:56 +0800
 categories: Microsoft
+typora-root-url: ./
 ---
 > [微软文档 - Windows 平台 C++ 语言开发应用程序](https://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpp)
 >
@@ -12,12 +13,14 @@ categories: Microsoft
 
 Visual C++ 是微软的 C/C++ 开发环境，使用 Visual Studio IDE，通过 Windows 操作系统 API（Win32 API）可以开发程序，开发 Windows 平台的桌面应用程序。
 
-# 术语
+# Windows概念
 
 *  win32 API 的主要设置用于开发32位或64位应用程序（虽然都叫 Win32 API）。
+*  [solution 与 project](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio) 的区别为：一个 solution 可以包含一个或多个 project。
+*  handle，句柄。
 *  API 后缀 `W` / 后缀 `A` / 无后缀，表示 双字节字符/ 单字节字符 / 当前字符环境的字节字符。
 
-常见类型
+常见类型。
 
 * `LPCSTR` ：
 * ` LPCWSTR ` ： Unicode 编码字符串的32位指针。
@@ -31,8 +34,6 @@ Visual C++ 是微软的 C/C++ 开发环境，使用 Visual Studio IDE，通过 W
 Visual Studio 是微软的 IDE 。
 
 ## Create 创建
-
-[solution 与 project](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio) 的区别为：一个 solution 可以包含一个或多个 project。
 
 ## Option 选项
 
@@ -125,23 +126,36 @@ Visual Studio 是微软的 IDE 。
 
 MFC，Microsoft Foundation Classes，微软基础类库，封装了 Win32 API 等功能，可以开发的具有用户界面的高级程序。
 
-[MFC 层级图](https://docs.microsoft.com/en-us/cpp/mfc/hierarchy-chart)：
+## 桌面程序概念
 
-* `CObject` 类，
-  *  `CWnd` ，窗口类，
-    * `CDialog`，对话框类，
-    * `Cbutton` ，按钮类，
-* 
+## 库构成
 
-MFC 工程组成：
+根据[MFC 层级图](https://docs.microsoft.com/en-us/cpp/mfc/hierarchy-chart)：
+
+* [CObject](https://docs.microsoft.com/en-us/cpp/mfc/reference/cobject-class) 对象类，
+  *  [CWnd](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class) 窗口类，
+    * [CDialog](https://docs.microsoft.com/en-us/cpp/mfc/reference/cdialog-class) 对话框类，
+    * [Cbutton](https://docs.microsoft.com/en-us/cpp/mfc/reference/cbutton-class) 按钮类，
+
+
+
+## 命名规则
+
+在 Windows 开发环境下
+
+## 创建项目
+
+
+
+## MFC 工程组成
 
 * **Source** ：源代码，
 * **Source** ：源代码，由 `.cpp` 组成。
-* **Resource** ：资源，由 `.rs` 和 `.rs2` 组成，用。在 Resource View  窗口下可进行可视化界面设计。
+* **Resource** ：资源，由 `.rs` 和 `.rs2` 组成，用。在 Resource View  窗口下可进行可视化UI设计。
 
 ## MFC Class Wizard
 
-Wizard 是对代码自动增/查/删/改类、消息映射、成员变量、成员函数等的工具，免去了手动编写过程。
+[MFC Class Wizard](https://docs.microsoft.com/en-us/cpp/mfc/reference/mfc-class-wizard) 工具用于对代码自动增/查/删/改类、消息映射、成员变量、成员函数等，免去了手动编写过程。
 
 ## 消息响应模型
 
@@ -156,14 +170,16 @@ MFC 创建的 Windows 的应用程序的窗口组成如下：
 
 ## 菜单栏
 
-## Dialog 对话框
+menu
+
+## 对话框
 
 Dialog 的两种显示：
 
 * 模态（禁用 Parent Dialog 的操作），调用 `DoModel()` 。
 * 非模态（允许父对话框的操作）。
 
-## 对话框控件
+## 控件
 
 button、
 
@@ -182,7 +198,7 @@ button、
 
 ## 实例
 
-## 设计可调整窗口
+### 设计可调整大小窗口
 
 在限定范围内可调整窗口大小并约束内部控件位置
 
@@ -193,7 +209,7 @@ button、
    1. `WM_SIZE`，调整对话框后，调用基类的 [`CWnd::OnSize(...)`](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class?view=vs-2019#onsize)。重写此函数处理对话框被大小调整。要约束内部控件的位置和大小，使用 `this->GetDlgItem(...)->MoveWindow(...)` 。注意对话框首次创建时也会调用，此时对话框还不是窗口，使用 `this->IsWindowVisible()` 做判断。首次约束窗口应写在 `OnInitDialog()` 内。
    2. `WM_GETMINMAXI`，调整窗口后，调用基类的 [`CWnd::OnGetMinMaxInfo(...)`](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class?view=vs-2019#ongetminmaxinfo)。重写此函数处理`tagMINMAXINFO` 指针，设置最大和最小
 
-## 拖放文件到对话框
+### 拖放文件到对话框并访问
 
 1. 在 Resource View 中选此对话框，选 `Properties` 的 `Accept Files` 为 `True` 。
 2. 在 Resource View 中选此对话框，在 `Message` 添加 
@@ -202,17 +218,23 @@ button、
 
 要在，可通过打包 Dialog 等资源文件实现。
 
-# Winuser.h
-
-## [MessageBox](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox)
-
-
-
 # Windows API
 
 所有主要的 Windows 函数都在 Windows.h 头文件中进行了声明。
 
- 
+## 消息弹窗
+
+调用 [MessageBox](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox) 函数，会显示一个模态对话框，其中包含一个系统图标、 一组按钮、一个简短的。函数返回一个整数值，该值指示用户单击了哪个按钮。
+
+## 访问 ini 文件
+
+调用 [GetPrivateProfileString](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getprivateprofilestring) 获取字符串，
+
+ `.ini` 文件内由 sector、key、value 组成。 
+
+
+
+
 
 函数的 _W 与 _A 后缀——字符处理
 
@@ -244,8 +266,6 @@ Windows API函数对字符处理有3种格式：
 
 ## 常用
 
-* [WritePrivateProfileString](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-writeprivateprofilestringa) 写 `String` 到 `.ini` 文件。`.ini` 文件内由 sector、key、value 组成。 
-
 # 库
 
 [库](https://en.wikipedia.org/wiki/Library_(computing))是用于开发软件的子程序集合，不是独立程序，向其他程序（如：可执行程序）提供服务的代码。
@@ -268,7 +288,7 @@ Windows API函数对字符处理有3种格式：
 
 
 
-# 设计并行程序
+# 并行程序
 
 [使用 C++ 和 MFC 进行多线程编程](https://docs.microsoft.com/zh-cn/cpp/parallel/multithreading-with-cpp-and-mfc?view=vs-2019)
 

@@ -30,7 +30,17 @@ github_username:  ChenYu0302
 
 # Build settings
 theme: minima
+
+
+# more > https://kramdown.gettalong.org/quickref.html
+# option > 
 markdown: kramdown
+kramdown:
+  input: GFM
+
+
+
+
 mathjax: true
 plugins:
   - jekyll-feed

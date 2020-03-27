@@ -13,7 +13,7 @@ categories: 计算机科学
 >
 > 清华大学邓俊辉数据结构[公开课](https://www.bilibili.com/video/av49361421)、教材。
 >
-> [Data Structures Easy to Advanced Course](https://www.youtube.com/watch?v=RBSGKlAvoiM)，谷歌工程师8小时数据结构教程。
+> [Data Structures Easy to Advanced Course](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)，谷歌工程师8小时数据结构教程。
 
 数据结构，data structure，DS，组织某些数据使其可以更高效地使用（如访问，更新等）。
 
