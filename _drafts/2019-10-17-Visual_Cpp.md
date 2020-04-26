@@ -128,17 +128,6 @@ MFC，Microsoft Foundation Classes，微软基础类库，封装了 Win32 API �
 
 ## 桌面程序概念
 
-## 库构成
-
-根据[MFC 层级图](https://docs.microsoft.com/en-us/cpp/mfc/hierarchy-chart)：
-
-* [CObject](https://docs.microsoft.com/en-us/cpp/mfc/reference/cobject-class) 对象类，
-  *  [CWnd](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class) 窗口类，
-    * [CDialog](https://docs.microsoft.com/en-us/cpp/mfc/reference/cdialog-class) 对话框类，
-    * [Cbutton](https://docs.microsoft.com/en-us/cpp/mfc/reference/cbutton-class) 按钮类，
-
-
-
 ## 命名规则
 
 在 Windows 开发环境下
@@ -161,6 +150,27 @@ MFC，Microsoft Foundation Classes，微软基础类库，封装了 Win32 API �
 
 * Windows 程序是**事件驱动（Event Driven）**的，**鼠标点击/键盘输入/窗口大小调整**等都是事件。
 * **事件**被记录为**消息** （Massage），是 `int` 类型，通过宏定义使字面上易于区分。消息包括了自带的**系统消息**和开发者定义的**应用程序消息**，如 `WinUser.h` 中的 `#define WM_LBUTTONDBLCLK 0x0203 ` 定义了鼠标左键点击事件。
+
+## 库构成
+
+根据[MFC层级图](https://docs.microsoft.com/en-us/cpp/mfc/hierarchy-chart)，常用的几个类：
+
+[CObject](https://docs.microsoft.com/en-us/cpp/mfc/reference/cobject-class) 对象类，
+┣ 
+┣ 
+┃
+┣
+┃
+┃
+┃ 
+┗ [CWnd](https://docs.microsoft.com/en-us/cpp/mfc/reference/cwnd-class) 窗口类
+	┃ 
+	┃
+	┣ [Cbutton](https://docs.microsoft.com/en-us/cpp/mfc/reference/cbutton-class) 按钮类，
+	┣ CProgressCtrl 进度条类，
+	┣ ComboBox 下拉框类，
+	┃
+	┗ [CDialog](https://docs.microsoft.com/en-us/cpp/mfc/reference/cdialog-class) 对话框类
 
 ## 界面
 

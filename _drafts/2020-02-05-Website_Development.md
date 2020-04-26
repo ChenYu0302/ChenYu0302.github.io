@@ -19,10 +19,15 @@ tags: 开发 计算机网络
 > * [W3School](https://www.w3schools.com)，全世界最大的 Web 开发网站。
 > * [W3School.cn](https://www.w3school.com.cn/) ，中文版。
 > * [MDN Web 文档](https://developer.mozilla.org/zh-CN/docs/Learn) ，Web 开发社区，每个人都可学习与贡献。
+> * [HTML Living Standard](https://html.spec.whatwg.org/)，标准 HTML 5 文档。
 
 前端，frontend，面向浏览器开发，负责网页多媒体；后端，backend，面向服务器开发，负责应用程序和数据库。 
 
 Internet，英特网；web，。
+
+# 概念
+
+由[W3C](https://www.w3.org/)组织规定标准。
 
 # HTML - 内容与结构
 

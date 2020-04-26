@@ -7,8 +7,6 @@ categories: 开发
 
 # 组合数学
 
-> 
->
 > [小与米 - next_permutation(全排列算法)](https://blog.csdn.net/c18219227162/article/details/50301513)
 >
 > [Shao Voon Wong - Combinations in C++](https://www.codeproject.com/articles/4675/combinations-in-c)

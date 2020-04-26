@@ -102,58 +102,77 @@ Swift是一门面向对象编程语言，所有的类都继承于 NSObject 类�
 
 [The Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#) [基础内容](https://www.cnswift.org/the-basics)
 
-> 变量与常量
->
-> ```swift
-> let maximumNumberOfLoginAttempts = 10	// 声明一个常量，不可重新赋值。
-> var currentLoginAttempt = 0				// 声明一个变量，可重新赋值。
-> var x = 0.0, y = 0.0, z = 0.0			// 在同一行内声明多个变量
-> 
-> var welcomeMessage: String		// 声明变量时指明此变量的类型，并不赋值。
-> welcomeMessage = "Hello"		// 后期可以用字符串值赋值。
-> var red, green, blue: Double	// 在同一行内声明同类型的多个变量
-> 
-> let π = 3.14159			// Unicode 字符可以作为变量名与常量名
-> let 你好 = "你好世界"		// 不可有空格、数学、
-> let 🐶🐮 = "dogcow"		// 用(`)包围的 Swift 关键字也可以，但不建议。
-> 
-> print(你好)	// print 函数用于打印常量与变量
-> ```
->
-> 注释
->
-> ```swift
-> // 与C家族语言一样，这是行注释。
-> 
-> /*
-> 与C家族语言一样，
-> 这是块注释。
-> */
-> ```
->
-> 分号
->
-> 整数
->
-> 浮点数
->
-> 类型安全与类型推断
->
-> 数值型字面值
->
-> 类型别名
->
-> ```Swift
-> typealias AudioSample = UInt16
-> ```
->
-> bool value 布尔值
->
-> tumple 元组
->
-> error handling 错误处理
->
-> 断言和先决条件
+```swift
+/*------------------------- 变量与常量 -------------------------*/
+
+let maximumNumberOfLoginAttempts = 10	// 声明一个常量，不可重新赋值
+var currentLoginAttempt = 0				// 声明一个变量，可重新赋值
+var x = 0.0, y = 0.0, z = 0.0			// 在同一行内声明多个变量
+
+var welcomeMessage: String		// 声明变量时指明此变量的类型，并不赋值
+welcomeMessage = "Hello"		// 后期可以用字符串值赋值
+var red, green, blue: Double	// 在同一行内声明同类型的多个变量
+
+// Unicode 字符可以作为变量名与常量名，不可有空格、数字，用`符包围的 Swift 关键字也可以，但不建议。
+let π = 3.14159
+let 你好 = "你好世界"
+let 🐶🐮 = "dogcow"
+
+print(你好)	// print 函数用于打印常量与变量
+
+/*------------------------- 注释 -------------------------*/
+
+// 与C家族语言一样，这是行注释。
+
+/*
+与C家族语言一样，
+这是块注释。
+*/
+
+/*------------------------- 分号 -------------------------*/
+
+let cat = "🐱"; print(cat) // 语句间的分号是可选的，换行可替代分号。单行多语句就必须有分号。
+
+
+/*------------------------- 整数 -------------------------*/
+
+/*------------------------- 浮点数 -------------------------*/
+
+/*------------------------- 类型安全和类型推断 -------------------------*/
+
+let pi = 3.14159 // 隐式推断为浮点数
+
+
+/*元组*/
+
+let http404Error = (404, "Not Found") // 元组，类型是(Int, String)，轻量的复合类型
+```
+
+
+
+分号
+
+整数
+
+浮点数
+
+类型安全与类型推断
+
+数值型字面值
+
+类型别名
+
+```Swift
+typealias AudioSample = UInt16
+```
+
+bool value 布尔值
+
+tumple 元组
+
+error handling 错误处理
+
+断言和先决条件
 
 [Basic Operators](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html) [基本运算符](https://www.cnswift.org/basic-operators)
 

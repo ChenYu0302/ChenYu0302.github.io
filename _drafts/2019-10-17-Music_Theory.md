@@ -125,6 +125,16 @@ Harmony study includes the analysis of chord progressions to show important rela
 >
 >  [好和弦 - 和弦還有什麼功能？（續集）](https://www.youtube.com/watch?v=1USZt8fx82U)
 
+# 构成
+
+“Intro”的意思是前奏，是一首歌的开头引子部分，通常没有人声就是一段乐器的旋律或是和声，用来变现一段情绪从而引出人声的主歌部分。
+
+“verse”指的是主歌、正歌，是一般歌曲中高潮之前的部分，将旋律慢慢推上高潮，表达故事和背景，叙述性强。
+
+“Chorus”和“Refrain”是副歌的意思，副歌在整个曲子中，一般旋律节奏与主歌相对比。
+
+“Bridge”亦称桥梁音乐或桥段，通常会在第一段副歌后面。可能是紧接着第一段副歌的间奏后面，也有可能是在第二段和第三段副歌之间。
+
 # 五度圈
 
 > **参考**

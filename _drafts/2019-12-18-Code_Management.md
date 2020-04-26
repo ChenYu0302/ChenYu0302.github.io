@@ -8,26 +8,31 @@ categories: 开发
 tags: 音乐 创作
 ---
 
-# 版本控制系统 
-
-版本控制
+# 版本控制系统
 
 ## Git 分布式版本控制系统
 
 > 参考
 >
-> * [git - 简明指南](https://www.runoob.com/manual/git-guide/)
-> * [Pro Git Book](https://git-scm.com/book/zh/v2) 
+> [git - 简明指南](https://www.runoob.com/manual/git-guide/)，快速。
+>
+> [Pro Git Book](https://git-scm.com/book/zh/v2) 
+>
+> [Git 社区参考书](http://book.git-scm.com/)
+>
+> [像 git 那样思考](http://think-like-a-git.net/)
+>
+> [GitHub 帮助](http://help.github.com/)
+>
+> [图解 Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
 
-前往 Git 官网的下载页面，下载所用操作系统下的 git 安装包。
+### 概念
 
-# Git
+[Git](https://git-scm.com/) 是一种分布式版本控制技术，意味着没有一个中央版本，每个人都持有完整的项目。
 
-> * 
+基于哈希值校验的原理，类似于“快照”，记录文件发生的修改，可在不同的版本之间实现查看修改、撤销、分支、合并等操作，参考。
 
-[Git](https://git-scm.com/) 是一种分布式版本控制技术，基于哈希值校验的原理，类似于“快照”，记录文件发生的修改，可在不同的版本之间实现查看修改、撤销、分支、合并等操作，参考。
-
-## 命令行工作流程
+### 命令行工作流程
 
 1. 安装与配置
    [下载](https://git-scm.com/downloads)安装 Git，支持 Windows/macOS/Linux 操作系统。
@@ -66,10 +71,6 @@ tags: 音乐 创作
 > [Mirosoft - Code maps and dependency diagrams](https://docs.microsoft.com/en-us/visualstudio/modeling/visualize-code?view=vs-2019)
 
 [doxygen](http://www.doxygen.nl/index.html) ，支持多种编程语言，支持 Windows/macOS/Linux 。
-
-# graphviz 导图绘制
-
-[graphviz](http://www.graphviz.org/) 用于绘制导图，
 
 ## doxygen + graphviz 绘制程序关系导图
 
