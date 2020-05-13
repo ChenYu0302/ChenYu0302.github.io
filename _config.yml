@@ -29,7 +29,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ChenYu0302
 
 # Build settings
-theme: minima
+theme: jekyll-theme-minimal
 
 
 # more > https://kramdown.gettalong.org/quickref.html
