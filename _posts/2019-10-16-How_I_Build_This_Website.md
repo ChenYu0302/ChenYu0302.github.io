@@ -9,54 +9,42 @@ categories: 开发
 tags: 计算机网络
 ---
 
-此个人网站基于 [Jekyll](https://jekyllrb.com) 框架搭建。
+此个人网站基于[Jekyll](https://jekyllrb.com)框架搭建。教程资源参见[官方文档逐步教程](https://jekyllrb.com/docs/step-by-step/01-setup/)、[Mike Dane](https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw) - [Jekyll - Static Site Generator Tutorial](https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB)。
+
+搭建开发环境，参见[官网安装](https://jekyllrb.com/docs/installation)，需要Ruby、Jekyll。
+
+安装 `Ruby >= 2.4.0`，[Ruby](https://www.ruby-lang.org/zh_cn/)是用于开发Jekyll的编程语言。macOS自带Ruby，可以在终端输入`ruby -v` 查看可执行的Ruby版本，输入`which ruby`查看当前可执行的Ruby路径。对于macOS Catalina，系统自带有位于[`/usr/bin/ruby`](/usr/bin/ruby)的`Ruby 2.6.3`。[gem](https://jekyllrb.com/docs/ruby-101/#gems)是Ruby项目封装包，Jekyll框架、Jekyll的各种主题和插件都是gem。。在[`/Library/Ruby/Gems`](/Library/Ruby/Gems)可查看全局系统安装了哪些gem。
+
+`gem install jekyll bundler`命令安装Jekyll gem和Bundler gem。[Bundler](https://jekyllrb.com/docs/ruby-101/#bundler)作用是提供一个恒定的环境，但不是必须的，[Bnndler与Jekyll一起使用](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/)可以保证环境依赖无误。Jekyll项目下的[`./Gemfile`](https://jekyllrb.com/docs/ruby-101/#gemfile)文档记录了所依赖的gem，`bundle install`命令从网络安装`./Gemfile`内要求的gem到全局系统，也可以进阶地[自定义Bundler安装路径](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/#configure-bundler-install-path)；随后对于Jekyll命令（如`jekyll build`）加上 `bundle exec` 前缀（如`bundle exec jekyll build`），会在Bundler的gem环境下运行此Jekyll命令。
+
+Jeykll通过**命令行**实现各种操作，参见[官网命令行使用](https://jekyllrb.com/docs/usage/)。
+
+**新建项目。**`jekyll new myblog`命令用于在当前路径创建一个名为“myblog”的 Jekyll 项目，会自带`./Gemfile`。
+
+**生成网站。**`jekyll build`命令单次生成一个`./_site/`内的静态网站，可直接放到服务器上部署。`jekyll serve`命令生成一个会根据`./_post/`内文档更新而实时同步`/_site/`文件夹的本地服务器接口，`jekyll serve --`命令则项目内任何文件被修改都会实时同步。
+
+编写博客。`_post`文件夹存放发布的Markdown文档，会随着生成网站命令被转成`_site`文件夹下的 .html 网页。 _draft 文件夹存放草稿 Markdown ， `jekyll serve --draft`命令可生成草稿网页。位于 Markdown 文档开头的[前言 front matter](https://jekyllrb.com/docs/front-matter/)包含了页面的各种键值对。
+
+通过`./_config.yml`文档或命令的参数，控制生成网站的各设置。参见[Configuration](https://jekyllrb.com/docs/configuration/)。
+
+配置Markdown选项，参见[官网 Markdown 选项](https://jekyllrb.com/docs/configuration/markdown/)。Jekyll 使用 [kramdown](https://kramdown.gettalong.org/index.html)  作为 Markdown 渲染引擎。由于我使用 [Typora](https://typora.io/) 作为 markdown 编辑器，故要求把 Karmdown 配置成生成的网页与 [Typora](https://typora.io/) 的查看有相同效果。
+
+1. 实现 [GitHub Favored Markdown, GFM](https://github.github.com/gfm/) 主题外观。
+2. 实现 [MathJax](https://www.mathjax.org/) 作为数学公式渲染引擎。 
+
+新建的Jekyll项目使用[minima](https://github.com/jekyll/minima)作为默认的主题，会安装`./Gemfile`里默认的Jekyll主题 gem[主题 gem](https://jekyllrb.com/docs/themes/#understanding-gem-based-themes) ，`open $(bundle info --path minima)` 命令访问项目所用主题的 gem 文件夹。默认主题是 `m` ，输入 `c` 命令。使用 [Liquid](https://jekyllrb.com/docs/liquid/) 语言，在 `.html` 中嵌入分支/循环。
+
+1. 设计页面布局。`_layout` 文件夹。默认的 主题 `default.html` 和``两种布局，在此文件夹。
+
+2. 设计页面成员。`_include` 文件夹。
+
+   部署网站。部署到 GitHub Page 或 Gitee Page。将 _site 文件夹作为根目录拷贝到服务器即可。
+
+`jekyll new-theme`创建一个主题基本框架，在此基础上设计个性化主题，最后打包成gem发行出去。
 
 ------
 
-参见 [官方文档逐步教程](https://jekyllrb.com/docs/step-by-step/01-setup/) 、[Mike Dane](https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw) - [Jekyll - Static Site Generator Tutorial](https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB)，逐步搭建：
-
-1. 搭建开发环境，参见 [官网 macOS 环境搭建](https://jekyllrb.com/docs/installation/macos/) ：
-   1. 安装 `Ruby >= 2.4.0` 。[Ruby](https://www.ruby-lang.org/zh_cn/) 是用于开发 Jeykll 框架的编程语言。macOS 自带 Ruby ，可以在终端输入 `ruby -v` 查看可执行的 Ruby 版本，输入 `which ruby` 查看可执行的 Ruby 路径。
-      - 对于 Catalina ，系统自带 `Ruby 2.6.3` 。
-      - 对于 Mojave 及其更早的操作系统，系统自带位于 [/usr/bin/ruby](/usr/bin/ruby) 的 `Ruby 2.3.7`，不满足版本要求。在安装了 [homebrew](https://brew.sh) 的前提下， `brew install ruby` 命令更新 Ruby。最新的 Ruby 安装到 [/usr/local/lib/ruby/gems](/usr/local/lib/ruby/gems) 路径。这并不会覆盖系统自带的 `Ruby` 版本，避免了覆盖带来的兼容性问题。每次使用命令行前， `export PATH=/usr/local/opt/ruby/bin:$PATH` 命令添加新 Ruby 的环境变量，再输入 `ruby -v` 就可查看到可执行的 Ruby 是最新版本。
-   3. 安装 Jeykll。`gem install jekyll bundler` 命令安装 Jekyll gem。[gem](https://jekyllrb.com/docs/ruby-101/#gems) 是 ruby 项目封装包，Jekyll 框架、Jekyll 的各种主题和插件都是 gem。在 Ruby 安装路径下可查看本地安装了哪些 gem。
-   
-2. 新建项目。参见 [官网命令行使用](https://jekyllrb.com/docs/usage/)。`jekyll new myblog` 命令用于在当前路径创建一个名为 myblog 的 Jekyll 项目。对于操作命令加上 `bundle exec` 前缀会通过 bundler 使用项目里 [Gemfile](https://jekyllrb.com/docs/ruby-101/#gemfile) 内记录所需的 gems ，避免了使用错误版本的 gems，这需 `bundle install` 命令从网络安装 Gemfile 内的 gem。`bundle exec jekyll build`  命令单次生成一个 site 文件夹下的静态网站，可直接放到服务器上部署。 `bundle exec jekyll serve`  命令生成一个会实时更新的本地服务器接口（_site 文件夹也会随着更新）。
-
-4. 编写博客。_post 文件夹存放发布的 Markdown，会随着生成网站命令被转成 _site 文件夹下的 .html 网页。 _draft 文件夹存放草稿 Markdown ，输入 `bundle exec jekyll serve --draft` 可生成草稿网页。位于 Markdown 文档开头的 [前言 front matter](https://jekyllrb.com/docs/front-matter/) 包含了页面的各种键值对，我的设置如下
-
-   > layout: 在 _layout 选定的布局
-> title:  页面的标题
-   > englishtitle: 我自定义的页面的英文标题
-   > permalink: 页面的 url 连接
-   > author: 作者名字
-   > lang: 页面语言
-   > date: 日期
-   > categories: 分类
-   > tags: 标签
-
-6. 配置 Markdown 选项。参见 [官网 Markdown 选项](https://jekyllrb.com/docs/configuration/markdown/) 。Jeykll 使用 [kramdown](https://kramdown.gettalong.org/index.html)  作为 Markdown 渲染引擎。由于我使用 [Typora](https://typora.io/) 作为 markdown 编辑器，故要求把 Karmdown 配置成生成的网页与 [Typora](https://typora.io/) 的查看有相同效果。
-  
-   1. 实现 [GitHub Favored Markdown, GFM](https://github.github.com/gfm/) 主题外观。
-   2. 实现 [MathJax](https://www.mathjax.org/) 作为数学公式渲染引擎。 
-   
-5. 重写/设计主题。新建项目默认使用名为 minima 的[主题 gem](https://jekyllrb.com/docs/themes/#understanding-gem-based-themes) ，`open $(bundle info --path minima)` 命令访问项目所用主题的 gem 文件夹。默认主题是 `m` ，输入 `c` 命令。使用 [Liquid](https://jekyllrb.com/docs/liquid/) 语言，在 `.html` 中嵌入分支/循环。
-
-   1. 设计页面布局。`_layout` 文件夹。默认的 主题 `default.html` 和 `` 两种布局，在此文件夹
-   2. 设计页面成员。`_include` 文件夹。
-
-6. 。
-
-7. 部署网站。
-
-   1. 部署到 GitHub Page 。
-   2. 将 _site 文件夹作为根目录拷贝到服务器即可。
-
-------
-
-通用 Markdown 效果：
-
-------
+测试Markdown 效果：
 
 # 一级标题
 
@@ -70,8 +58,6 @@ tags: 计算机网络
 
 ###### 六级标题
 
-------
-
 **加粗**
 
 *斜体*
@@ -82,15 +68,15 @@ tags: 计算机网络
 
 ~~删除线~~
 
-[苹果](https://www.apple.com/)
+[苹果官网](https://www.apple.com/)
 
-[谷歌][]
+[谷歌官网][]
 
-[谷歌]: https://www.google.com
+[谷歌官网]: https://www.google.com	"谷歌"
 
 苹果[^1] 在 2019 年发布了 iPhone 11 。
 
-[^1]: 计算机公司
+[^1]: 总部位于美国加州库比蒂诺的跨国科技公司
 
 ------
 
